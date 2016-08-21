@@ -16,16 +16,31 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 			$scope.details = response.data;
 
 			$http.get("assets/typeweakness.json").then(function(response){
-				//capture pokemon types
+
+				var typeWeakness = response.data;
 				var pokemonTypes = [];
+
 				for(type in $scope.details.types){
 					if ($scope.details.types.hasOwnProperty(type)) {
 						pokemonTypes.push($scope.details.types[type].type.name);
 					}
 					
 				}
-				console.log(pokemonTypes);
-				//search weakness list for each type
+
+				function captureWeaknesses(type){
+					for(var i=0; i < typeWeakness.length; i++){
+						if(type.toUpperCase() == typeWeakness[i].name.toUpperCase()){
+							console.log(type);
+							console.log(typeWeakness[i].immunes);
+							console.log(typeWeakness[i].weaknesses);
+							console.log(typeWeakness[i].strengths);
+						}
+					}
+				}
+
+				for(var i=0; i < pokemonTypes.length; i++){
+					captureWeaknesses(pokemonTypes[i]);
+				}
 				//return immunes, weaknesses, and strengths from weakness list
 			});
 
