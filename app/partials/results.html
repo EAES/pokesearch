@@ -1,7 +1,29 @@
 <div ng-if="!details">
-  Loading results...
+  <img src="assets/images/pikaloader.gif" />
+  <p>Loading...</p>
 </div>
 
 <div ng-if="details">
+	<img id="pokemon-art" ng-src="assets/pokemon/{{details.id}}.png" />
+	
+	<h1>{{ details.name}}</h1>
+	
+	<ul id="types">
+		<li	ng-repeat="types in details.types">
+			{{types.type.name}}
+		</li>
+	</ul>
+
+	<ul id="base-stats">
+	<h4>Base Stats</h4>
+		<li ng-repeat="stats in details.stats">
+			{{stats.stat.name}} {{stats.base_stat}}
+		</li>
+	</ul>
+
+	<ul id="type-effectiveness">
+	</ul>
+
+
 	<pre>{{details | json}}</pre>
 </div>
