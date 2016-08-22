@@ -15,7 +15,7 @@
 
 	<h4>Base Stats</h4>
 	<ul id="base-stats">
-		<li ng-repeat="stats in details.stats">
+		<li ng-repeat="stats in details.stats | orderBy:'-'">
 			{{stats.stat.name}}: {{stats.base_stat}}
 		</li>
 	</ul>
@@ -24,7 +24,7 @@
 	<ul ng-repeat="type in typeEffectiveness">
 		<h6>{{ type.name }}:</h6>
 		<li ng-if="type.immunes"> No damage against: {{ type.immunes }} </li>
-		<li ng-if="type.weaknesses"> Not very effective/ weak against: {{ type.weaknesses }} </li>
+		<li ng-if="type.weaknesses"> Not very effective: {{ type.weaknesses }} </li>
 		<li ng-if="type.strengths"> Super-effective against: {{ type.strengths }} </li>
 	</ul>
 
