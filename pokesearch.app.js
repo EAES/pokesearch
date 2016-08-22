@@ -27,13 +27,17 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 					
 				}
 
+				var currPokeWeaknesses = {};
+				$scope.typeEffectiveness = currPokeWeaknesses;
+
 				function captureWeaknesses(type){
 					for(var i=0; i < typeWeakness.length; i++){
 						if(type.toUpperCase() == typeWeakness[i].name.toUpperCase()){
-							console.log(type);
-							console.log(typeWeakness[i].immunes);
-							console.log(typeWeakness[i].weaknesses);
-							console.log(typeWeakness[i].strengths);
+							currPokeWeaknesses[i] = {};
+							currPokeWeaknesses[i]["name"] = typeWeakness[i].name;
+							currPokeWeaknesses[i]["immunes"] = typeWeakness[i].immunes.join(', ');
+							currPokeWeaknesses[i]["weaknesses"] = typeWeakness[i].weaknesses.join(', ');
+							currPokeWeaknesses[i]["strengths"] = typeWeakness[i].strengths.join(', ');
 						}
 					}
 				}
@@ -41,7 +45,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 				for(var i=0; i < pokemonTypes.length; i++){
 					captureWeaknesses(pokemonTypes[i]);
 				}
-				//return immunes, weaknesses, and strengths from weakness list
 			});
 
 		});

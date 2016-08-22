@@ -7,23 +7,25 @@
 	<img id="pokemon-art" ng-src="assets/pokemon/{{details.id}}.png" />
 	
 	<h1>{{ details.name}}</h1>
-	
 	<ul id="types">
 		<li	ng-repeat="types in details.types">
 			{{types.type.name}}
 		</li>
 	</ul>
 
-	<ul id="base-stats">
 	<h4>Base Stats</h4>
+	<ul id="base-stats">
 		<li ng-repeat="stats in details.stats">
-			{{stats.stat.name}} {{stats.base_stat}}
+			{{stats.stat.name}}: {{stats.base_stat}}
 		</li>
 	</ul>
 
-	<ul id="type-effectiveness">
+	<h4>Type Effectiveness</h4>
+	<ul ng-repeat="type in typeEffectiveness">
+		<h6>{{ type.name }}:</h6>
+		<li ng-if="type.immunes"> No damage against: {{ type.immunes }} </li>
+		<li ng-if="type.weaknesses"> Not very effective/ weak against: {{ type.weaknesses }} </li>
+		<li ng-if="type.strengths"> Super-effective against: {{ type.strengths }} </li>
 	</ul>
 
-
-	<pre>{{details | json}}</pre>
 </div>
