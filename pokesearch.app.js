@@ -1,5 +1,15 @@
 var app = angular.module('pokesearch', [])
 
+//custom capitilize filter
+
+app.filter('capitalize', function() {
+  return function(input, scope) {
+    if (input!=null)
+    input = input.toLowerCase();
+    return input.substring(0,1).toUpperCase()+input.substring(1);
+  }
+});
+
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
 	$scope.$watch('search', function(){
 		if($scope.search === ""){
