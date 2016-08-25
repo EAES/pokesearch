@@ -1,7 +1,8 @@
 	var app = angular.module('pokesearch', [])
 
 //TODO:
-	//figure out eevee && other non lvlup edge cases
+	//figure out eevee && other non lvlup use cases
+	// male/female evolution edge case
 	//show mega evos if present
 	//speed up capture of evo chain
 	//cache results
@@ -45,7 +46,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
 	function fetch(){
 
-		$scope.pokemonEvoChain = "";
+		$scope.pokemonEvoChain = '';
+		$scope.serviceError = '';
 
 		//cature evo chain
 		$http.get("http://pokeapi.co/api/v2/pokemon-species/"+$scope.search+"/").then(function(response){
@@ -81,6 +83,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 		$scope.pokemon = "";
 
 		//get basic pokemon data
+		// TODO: don't connect each time, try and fetch main object and cache in localStorage
 		$http.get("http://pokeapi.co/api/v2/pokemon/"+$scope.search+"/").then(function(response){
 			
 			$scope.pokemon = response.data;
@@ -133,6 +136,10 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 		}
 
 		);
+	}
+
+	$scope.changePokemon = function(newSearch){
+		$scope.search = newSearch;
 	}
 
 	//select all when clicking inside text input box
