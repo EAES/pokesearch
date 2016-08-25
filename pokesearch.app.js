@@ -1,12 +1,34 @@
-var app = angular.module('pokesearch', [])
+	var app = angular.module('pokesearch', [])
 
-//custom capitilize filter
+//TODO:
+	//show loading on each query instead of just first
+		//maybe clear data on fetch
+	//figure out eevee edge case
+	//show errors on notfound
+	//speed up capture of evo chain
 
+//capitilize filter
 app.filter('capitalize', function() {
   return function(input, scope) {
     if (input!=null)
     input = input.toLowerCase();
     return input.substring(0,1).toUpperCase()+input.substring(1);
+  }
+});
+
+//fixed number length filter
+app.filter('numLength', function() {
+  return function (n, len) {
+	var num = parseInt(n, 10);
+	len = parseInt(len, 10);
+	if (isNaN(num) || isNaN(len)) {
+	    return n;
+	}
+	num = ''+num;
+	while (num.length < len) {
+	    num = '0'+num;
+	}
+	return num;
   }
 });
 

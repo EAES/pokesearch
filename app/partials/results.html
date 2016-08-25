@@ -7,6 +7,7 @@
 	<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
 	
 	<h1>{{ pokemon.name}}</h1>
+	<h5>#{{ pokemon.id | numLength:3}}</h5>
 	<ul id="types">
 		<li	ng-repeat="types in pokemon.types">
 			{{types.type.name}}
