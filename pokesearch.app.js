@@ -1,11 +1,9 @@
 	var app = angular.module('pokesearch', [])
 
 //TODO:
-	//show loading on each query instead of just first
-		//maybe clear data on fetch - DONE
 	//figure out eevee && other non lvlup edge cases
-	//show errors on notfound
 	//speed up capture of evo chain
+	//cache results
 
 //capitilize filter
 app.filter('capitalize', function() {
@@ -53,6 +51,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 			$scope.pokemonSpecies = response.data;
 			$http.get($scope.pokemonSpecies.evolution_chain.url).then(function(response){
 				
+				//thanks Ryan @ stackoverflow!
 				var evoChain = [];
 				var evoData = response.data.chain;
 
@@ -116,7 +115,19 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 				}
 			});
 
-		});
+		},
+		//error handling
+		function(response) {
+			if(response.status === 400){
+				$scope.serviceError = "Sorry, could not find pokemon you requested.";
+			} else if(response.status === 504){
+				$scope.serviceError = "Sorry, service is currently not available. Please check back later."
+			} else if(response.status !== 200){
+				$scope.serviceError = "Unknown error, please try again later."
+			}
+		}
+
+		);
 	}
 
 	//select all when clicking inside text input box

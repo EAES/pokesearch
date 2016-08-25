@@ -1,12 +1,17 @@
-<div ng-if="!pokemon">
-  <img src="assets/images/pikaloader.gif" />
+<!-- loading -->
+<div ng-if="!pokemon && !serviceError">
+  <img src="assets/images/loader.gif" />
   <p>Loading...</p>
 </div>
-
+<!-- error -->
+<div ng-if="serviceError">
+  <p>Could not find Pokemon you requested, please check spelling and try again.</p>
+</div>
+<!-- content -->
 <div ng-if="pokemon">
 	<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
-	
-	<h1>{{ pokemon.name}}</h1>
+
+	<h1>{{ pokemon.name | capitalize}}</h1>
 	<h5>#{{ pokemon.id | numLength:3}}</h5>
 	<ul id="types">
 		<li	ng-repeat="types in pokemon.types">
@@ -23,12 +28,12 @@
 
 	<h4>Evolution Chain</h4>
 	<div ng-if="pokemonEvoChain == '' ">
-	  <img src="assets/images/pikaloader.gif" />
+	  <img src="assets/images/loader.gif" />
 	  <p>Loading...</p>
 	</div>
 	<ul ng-repeat="evo in pokemonEvoChain">
-		<li ng-if="evo.min_level == 1">{{evo.species_name | capitalize}}</li>
-		<li ng-if="evo.trigger_name">{{ evo.species_name | capitalize }}
+		<li ng-if="evo.min_level == 1"><strong>{{evo.species_name | capitalize}}</strong></li>
+		<li ng-if="evo.trigger_name"><strong>{{ evo.species_name | capitalize }}</strong>
 			<span ng-if="evo.trigger_name == 'level-up' ">
 				<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
 			</span>
@@ -45,10 +50,6 @@
 			</span>
 		</li>
 	</ul>
-
-	<pre>
-		{{ pokemonEvoChain | json }}
-	</pre>
 
 	<h4>Type Effectiveness</h4>
 	<ul ng-repeat="type in typeEffectiveness">
