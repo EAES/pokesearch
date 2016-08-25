@@ -22,11 +22,16 @@
 
 	<h4>Evolution Chain</h4>
 	<ul ng-repeat="evo in pokemonEvoChain">
-		<li ng-if="evo.min_level == 1">{{evo.species_name}}</li>
-		<li ng-if="evo.min_level > 1">Evolves to {{ evo.species_name }} via {{evo.trigger_name}} at {{ evo.min_level }}</li>
+		<li ng-if="evo.min_level == 1">{{evo.species_name | capitalize}}</li>
+		<li ng-if="evo.trigger_name">{{ evo.species_name | capitalize }}
+			<span ng-if="evo.trigger_name == 'level-up' ">
+				<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
+			</span>
+			<span ng-if="evo.trigger_name == 'use-item' ">using {{evo.item.name}}
+				<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
+			</span>
+		</li>
 	</ul>
-	<pre>{{ pokemonEvoChain | json}}</pre>
-
 
 	<h4>Type Effectiveness</h4>
 	<ul ng-repeat="type in typeEffectiveness">
