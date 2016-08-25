@@ -1,30 +1,38 @@
-<div ng-if="!details">
+<div ng-if="!pokemon">
   <img src="assets/images/pikaloader.gif" />
   <p>Loading...</p>
 </div>
 
-<div ng-if="details">
-	<img id="pokemon-art" ng-src="assets/pokemon/{{details.id}}.png" />
+<div ng-if="pokemon">
+	<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
 	
-	<h1>{{ details.name}}</h1>
+	<h1>{{ pokemon.name}}</h1>
 	<ul id="types">
-		<li	ng-repeat="types in details.types">
+		<li	ng-repeat="types in pokemon.types">
 			{{types.type.name}}
 		</li>
 	</ul>
 
 	<h4>Base Stats</h4>
 	<ul id="base-stats">
-		<li ng-repeat="stats in details.stats | orderBy:'-'">
+		<li ng-repeat="stats in pokemon.stats | orderBy:'-'">
 			{{stats.stat.name}}: {{stats.base_stat}}
 		</li>
 	</ul>
+
+	<h4>Evolution Chain</h4>
+	<ul ng-repeat="evo in pokemonEvoChain">
+		<li ng-if="evo.min_level == 1">{{evo.species_name}}</li>
+		<li ng-if="evo.min_level > 1">Evolves to {{ evo.species_name }} via {{evo.trigger_name}} at {{ evo.min_level }}</li>
+	</ul>
+	<pre>{{ pokemonEvoChain | json}}</pre>
+
 
 	<h4>Type Effectiveness</h4>
 	<ul ng-repeat="type in typeEffectiveness">
 		<h6>{{ type.name }}:</h6>
 		<li ng-if="type.immunes"> No damage against: {{ type.immunes }} </li>
-		<li ng-if="type.weaknesses"> Not very effective: {{ type.weaknesses }} </li>
+		<li ng-if="type.weaknesses"> Not very effective against: {{ type.weaknesses }} </li>
 		<li ng-if="type.strengths"> Super-effective against: {{ type.strengths }} </li>
 	</ul>
 

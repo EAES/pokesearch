@@ -10,12 +10,38 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 	})
 
 	//set default search param to first pokemon in pokedex order
-	$scope.search = "bulbasaur";
+	$scope.search = "charmander";
 
 	function fetch(){
+
+		//cature evo chain
+		$http.get("http://pokeapi.co/api/v2/pokemon-species/"+$scope.search+"/").then(function(response){
+			$scope.pokemonSpecies = response.data;
+			$http.get($scope.pokemonSpecies.evolution_chain.url).then(function(response){
+				
+				var evoChain = [];
+				var evoData = response.data.chain;
+
+				do {
+				  var evoDetails = evoData['evolution_details'][0];
+
+				  evoChain.push({
+				    "species_name": evoData.species.name,
+				    "min_level": !evoDetails ? 1 : evoDetails.min_level,
+				    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
+				    "item": !evoDetails ? null : evoDetails.item
+				  });
+
+				  evoData = evoData['evolves_to'][0];
+				} while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+
+				$scope.pokemonEvoChain = evoChain;
+			});
+		});
+
 		//get basic pokemon data
 		$http.get("http://pokeapi.co/api/v2/pokemon/"+$scope.search+"/").then(function(response){
-			$scope.details = response.data;
+			$scope.pokemon = response.data;
 
 			//get weaknesses after fetching pokemon data
 			$http.get("assets/typeweakness.json").then(function(response){
@@ -23,11 +49,10 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 				var typeWeakness = response.data;
 				var pokemonTypes = [];
 
-				for(type in $scope.details.types){
-					if ($scope.details.types.hasOwnProperty(type)) {
-						pokemonTypes.push($scope.details.types[type].type.name);
+				for(type in $scope.pokemon.types){
+					if ($scope.pokemon.types.hasOwnProperty(type)) {
+						pokemonTypes.push($scope.pokemon.types[type].type.name);
 					}
-					
 				}
 
 				//create new weaknesses object
