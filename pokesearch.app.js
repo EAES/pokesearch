@@ -2,6 +2,7 @@
 
 //TODO:
 	//figure out eevee && other non lvlup edge cases
+	//show mega evos if present
 	//speed up capture of evo chain
 	//cache results
 
@@ -40,7 +41,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 	})
 
 	//set default search param to first pokemon in pokedex order
-	$scope.search = "charmander";
+	$scope.search = "bulbasaur";
 
 	function fetch(){
 
@@ -54,6 +55,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 				//thanks Ryan @ stackoverflow!
 				var evoChain = [];
 				var evoData = response.data.chain;
+				$scope.pokemonEvoDump = evoData;
 
 				do {
 				  var evoDetails = evoData['evolution_details'][0];
@@ -63,13 +65,16 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 				    "min_level": !evoDetails ? 1 : evoDetails.min_level,
 				    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
 				    "item": !evoDetails ? null : evoDetails.item,
-				    "held_item": !evoDetails ? null : evoDetails.held_item
+				    "held_item": !evoDetails ? null : evoDetails.held_item,
+				    "overworld_rain": !evoDetails ? null : evoDetails.needs_overworld_rain,
+				    "happiness": !evoDetails ? null : evoDetails.min_happiness
 				  });
 
 				  evoData = evoData['evolves_to'][0];
 				} while (!!evoData && evoData.hasOwnProperty('evolves_to'));
 
 				$scope.pokemonEvoChain = evoChain;
+
 			});
 		});
 
