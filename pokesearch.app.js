@@ -2,8 +2,8 @@
 
 //TODO:
 	//show loading on each query instead of just first
-		//maybe clear data on fetch
-	//figure out eevee edge case
+		//maybe clear data on fetch - DONE
+	//figure out eevee && other non lvlup edge cases
 	//show errors on notfound
 	//speed up capture of evo chain
 
@@ -46,6 +46,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
 	function fetch(){
 
+		$scope.pokemonEvoChain = "";
+
 		//cature evo chain
 		$http.get("http://pokeapi.co/api/v2/pokemon-species/"+$scope.search+"/").then(function(response){
 			$scope.pokemonSpecies = response.data;
@@ -61,7 +63,8 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 				    "species_name": evoData.species.name,
 				    "min_level": !evoDetails ? 1 : evoDetails.min_level,
 				    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
-				    "item": !evoDetails ? null : evoDetails.item
+				    "item": !evoDetails ? null : evoDetails.item,
+				    "held_item": !evoDetails ? null : evoDetails.held_item
 				  });
 
 				  evoData = evoData['evolves_to'][0];
@@ -71,8 +74,11 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 			});
 		});
 
+		$scope.pokemon = "";
+
 		//get basic pokemon data
 		$http.get("http://pokeapi.co/api/v2/pokemon/"+$scope.search+"/").then(function(response){
+			
 			$scope.pokemon = response.data;
 
 			//get weaknesses after fetching pokemon data
