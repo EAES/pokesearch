@@ -1,9 +1,16 @@
-	var app = angular.module('pokesearch', [])
+var app = angular.module('pokesearch', [])
 
 //TODO:
-	//figure out eevee/rotom && other edge cases
-	// male/female evolution edge case
-	//show mega evos if present
+	//hyphenated search fix (e.g. mr-mime, mime-jr)
+	//figure out evolution use/edge cases
+		//move learn use case
+		//eevee edge case
+		//rotom edge case
+		//weather use cases
+		//upside down edge case
+		//male/female use case
+		//alt forms use cases (wormadam)
+		//show mega evos if present
 	//speed up capture of evo chain
 	//cache results
 
