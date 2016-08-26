@@ -1,0 +1,15 @@
+☐ hyphenated search fix (e.g. mr-mime, mime-jr) @high
+☐ convert search to lowercase @critical
+☐ figure out evolution use/edge cases
+  ☐ move learn use case
+  ☐ eevee edge case @high
+  ☐ rotom edge case
+  ☐ weather use cases
+  ☐ upside down edge case
+  ☐ male/female use case @high
+  ☐ branch evo use case
+  ☐ alt forms use cases (wormadam)
+  ☐ show mega evos if present
+☐ speed up capture of evo chain @low
+☐ cache results @low
+☐ styles
