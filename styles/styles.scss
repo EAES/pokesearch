@@ -1,0 +1,63 @@
+#main-logo{
+	height: 60px;
+	display: block;
+	margin: 0 auto 20px auto;
+}
+
+#pokemon-art{
+	width: 100%;
+}
+
+header{
+	background: #DD0019;
+	padding: 20px;
+	height: 170px;
+
+	.form-control{
+		background: none;
+		border: 2px solid white;
+		color: white;
+		font-size: 30px;
+		padding: 20px;
+		border-radius: 8px;
+	}
+}
+
+.messages{
+	text-align: center;
+	padding: 1em;
+	font-size:10px;
+}
+
+
+section{
+	ul{
+		padding: 0;
+		margin: 0;
+		li{
+			list-style: none;
+		}
+	}
+
+	&#main-pokemon{
+		text-align: center;
+	}
+
+	&#base-stats{
+	}
+
+	&#evolution-chain ul{
+		padding: 0;
+		margin: 0;
+
+		li strong{
+			display: block;
+		}
+	}
+}
+
+footer{
+	border-top: 1px solid #ccc;
+	margin-top: 1em;
+	padding-top: 1em;
+}

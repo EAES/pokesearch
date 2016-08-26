@@ -1,88 +1,111 @@
 <!-- loading -->
-<div ng-if="!pokemon && !serviceError">
+<div ng-if="!pokemon && !serviceError" class="messages">
   <img src="assets/images/loader.gif" />
   <p>Loading...</p>
 </div>
 <!-- error -->
 <p class="bg-warning" ng-if="serviceError">{{ serviceError }}</p>
 <!-- content -->
-<div ng-if="pokemon">
-	<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
 
-	<h1>{{ pokemon.name | capitalize}}</h1>
-	<h5>#{{ pokemon.id | numLength:3}}</h5>
-	<ul id="types">
-		<li	ng-repeat="types in pokemon.types">
-			{{types.type.name}}
-		</li>
-	</ul>
+<div ng-if="pokemon" class="row">
+	
+	<section id="main-pokemon" class="col-xs-6">
+		<!-- <h1>{{ pokemon.name | capitalize}}</h1> -->
+		<h5>#{{ pokemon.id | numLength:3}}</h5>
 
-	<h4>Base Stats</h4>
-	<ul id="base-stats">
-		<li ng-repeat="stats in pokemon.stats | orderBy:'-'">
-			{{stats.stat.name}}: {{stats.base_stat}}
-		</li>
-	</ul>
+		<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
+
+		<ul id="types">
+			<li	ng-repeat="types in pokemon.types">
+				{{types.type.name}}
+			</li>
+		</ul>
+	</section>
+	
+
+	<section id="base-stats" class="col-xs-6">
+		<h4>Base Stats</h4>
+		<ul id="base-stats">
+			<li ng-repeat="stats in pokemon.stats | orderBy:'-'">
+				<span class="{{stats.stat.name}}">{{stats.stat.name}}:</span>
+				<span class="stat">{{stats.base_stat}}</span>
+			</li>
+		</ul>
+	</section>
+	
 
 	 <!-- <pre>{{ pokemonEvoDump | json }}</pre> -->
 	<!--<pre>{{ pokemonEvoChain | json }}</pre> -->
 
-	<h4>Evolution Chain</h4>
-	<div ng-if="pokemonEvoChain == '' ">
-	  <img src="assets/images/loader.gif" />
-	  <p>Loading...</p>
-	</div>
-	<ul ng-repeat="evo in pokemonEvoChain">
+	<section id="evolution-chain" class="col-xs-12">
+			<h4>Evolution Chain</h4>
+			
+			<!-- loader -->
+			<div ng-if="pokemonEvoChain == '' " class="messages">
+			  <img src="assets/images/loader.gif" />
+			  <p>Loading...</p>
+			</div>
 
+			<ul ng-repeat="evo in pokemonEvoChain" class="col-xs-4">
+				
+				<a ng-click="changePokemon(evo.species_name)">
+					<li ng-if="evo.min_level == 1">
+						<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
+						err-src="assets/images/noimage.png" />
+						<strong>{{evo.species_name | capitalize}}</strong>
+					</li>
+				</a>
+				
+				<a ng-click="changePokemon(evo.species_name)">
+					<li ng-if="evo.trigger_name">
+						
+						<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
+						err-src="assets/images/noimage.png" />
+						<strong>{{ evo.species_name | capitalize }}</strong>
 
-		
-		<a ng-click="changePokemon(evo.species_name)">
-			<li ng-if="evo.min_level == 1">
-				<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
-				err-src="assets/images/noimage.png" />
-				<strong>{{evo.species_name | capitalize}}</strong>
-			</li>
-		</a>
-		
-		<a ng-click="changePokemon(evo.species_name)">
-			<li ng-if="evo.trigger_name">
-				
-				<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
-				err-src="assets/images/noimage.png" />
-				<strong>{{ evo.species_name | capitalize }}</strong>
+					<!-- if by level up -->
+						<span ng-if="evo.trigger_name == 'level-up' ">
+							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
+							<!-- if levelup + weather -->
+							<span ng-if="evo.overworld_rain">Rain</span>
+						</span>
+						
+						<!-- if bytrade -->
+						<span ng-if="evo.trigger_name == 'trade' ">trade
+							<!-- if level + trade-->
+							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
+							<!-- if held item + trade -->
+							<span ng-if="evo.held_item !== null ">holding {{ evo.held_item.name | capitalize }}</span>
+						</span>
+						
+						<!-- if by item -->
+						<span ng-if="evo.trigger_name == 'use-item' ">using {{evo.item.name}}
+							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
+						</span>
+						
+						<!-- if by happiness -->
+						<span ng-if="evo.happiness != null ">Happiness</span>
+					</li>
+				</a>
+			</ul>
+	</section>
+	
 
-			<!-- if by level up -->
-				<span ng-if="evo.trigger_name == 'level-up' ">
-					<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
-					<!-- if levelup + weather -->
-					<span ng-if="evo.overworld_rain">Rain</span>
-				</span>
-				
-				<!-- if bytrade -->
-				<span ng-if="evo.trigger_name == 'trade' ">trade
-					<!-- if level + trade-->
-					<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
-					<!-- if held item + trade -->
-					<span ng-if="evo.held_item !== null ">holding {{ evo.held_item.name | capitalize }}</span>
-				</span>
-				
-				<!-- if by item -->
-				<span ng-if="evo.trigger_name == 'use-item' ">using {{evo.item.name}}
-					<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
-				</span>
-				
-				<!-- if by happiness -->
-				<span ng-if="evo.happiness != null ">Happiness</span>
-			</li>
-		</a>
-	</ul>
+	<section id="type-effectiveness" class="col-xs-12">
+		<h4>Type Effectiveness</h4>
+		<div ng-repeat="type in typeEffectiveness">
+			<h6>{{ type.name }}:</h6>
+			<ul ng-if="type.immunes">
+				<span>No damage against:</span>
+				<li>{{ type.immunes }}</li>
+			</ul>
+			<ul ng-if="type.weaknesses"> <span>Not very effective against:</span> {{ type.weaknesses }} </ul>
+			<ul ng-if="type.strengths"> <span>Super-effective against:</span> {{ type.strengths }} </ul>
+		</div>
+	</section>
 
-	<h4>Type Effectiveness</h4>
-	<ul ng-repeat="type in typeEffectiveness">
-		<h6>{{ type.name }}:</h6>
-		<li ng-if="type.immunes"> No damage against: {{ type.immunes }} </li>
-		<li ng-if="type.weaknesses"> Not very effective against: {{ type.weaknesses }} </li>
-		<li ng-if="type.strengths"> Super-effective against: {{ type.strengths }} </li>
-	</ul>
+	<footer class="col-xs-12">
+		All pokemon names and likenesses are copyright GameFreak, Pokemon Co., and Nintendo. Used without permission but under Fair Use 17 U.S. Code S 107.
+	</footer>
 
 </div>
