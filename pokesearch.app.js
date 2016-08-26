@@ -39,6 +39,19 @@ app.filter('numLength', function() {
   }
 });
 
+//display placeholder image if no pokemon sprite found
+app.directive('errSrc', function() {
+  return {
+    link: function(scope, element, attrs) {
+      element.bind('error', function() {
+        if (attrs.src != attrs.errSrc) {
+          attrs.$set('src', attrs.errSrc);
+        }
+      });
+    }
+  }
+});
+
 app.controller('MainController', ['$scope', '$http', function($scope, $http){
 	$scope.$watch('search', function(){
 		if($scope.search === ""){
@@ -134,9 +147,9 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 		},
 		//error handling
 		function(response) {
-			if(response.status === 404){
+			if(response.status == 404){
 				$scope.serviceError = "Sorry, could not find pokemon you requested.";
-			} else if(response.status === 504){
+			} else if(response.status == 504){
 				$scope.serviceError = "Sorry, service is currently not available. Please check back later."
 			} else if(response.status !== 200){
 				$scope.serviceError = "Unknown error, please try again later."

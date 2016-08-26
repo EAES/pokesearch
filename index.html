@@ -12,12 +12,16 @@
 	<link rel="stylesheet" href="styles/styles.css">
 </head>
 <body ng-controller="MainController">
-<img id="main-logo" src="assets/images/pokesearchlogo.svg" alt="PokeSearch">
-<input type="text"
-	   placeholder="Type Pokémon Name"
-	   ng-model="search"
-	   ng-model-options="{debounce: 800}"
-	   onclick="select()">
+
+<header>
+	<img id="main-logo" src="assets/images/pokesearchlogo.svg" alt="PokeSearch">
+	
+	<input class="form-control" type="text"
+		   placeholder="Type Pokémon Name"
+		   ng-model="search"
+		   ng-model-options="{debounce: 800}"
+		   onclick="select()">
+</header>
 
 <div ng-include="'app/partials/results.html'"></div>
 
