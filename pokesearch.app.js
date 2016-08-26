@@ -1,7 +1,7 @@
 	var app = angular.module('pokesearch', [])
 
 //TODO:
-	//figure out eevee && other non lvlup use cases
+	//figure out eevee/rotom && other edge cases
 	// male/female evolution edge case
 	//show mega evos if present
 	//speed up capture of evo chain
@@ -64,6 +64,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 
 				  evoChain.push({
 				    "species_name": evoData.species.name,
+				    "species_url": evoData.species.url,
 				    "min_level": !evoDetails ? 1 : evoDetails.min_level,
 				    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
 				    "item": !evoDetails ? null : evoDetails.item,
@@ -126,7 +127,7 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 		},
 		//error handling
 		function(response) {
-			if(response.status === 400){
+			if(response.status === 404){
 				$scope.serviceError = "Sorry, could not find pokemon you requested.";
 			} else if(response.status === 504){
 				$scope.serviceError = "Sorry, service is currently not available. Please check back later."
@@ -136,6 +137,12 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
 		}
 
 		);
+	}
+
+	$scope.getPokemonIdFromUrl = function(url){
+		url = url.slice(0, -1);
+		url = url.substring(url.lastIndexOf('/')+1);
+		return url;
 	}
 
 	$scope.changePokemon = function(newSearch){

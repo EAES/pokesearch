@@ -26,8 +26,8 @@
 		</li>
 	</ul>
 
-	<!-- <pre>{{ pokemonEvoDump | json }}</pre>
-	<pre>{{ pokemonEvoChain | json }}</pre> -->
+	 <!-- <pre>{{ pokemonEvoDump | json }}</pre> -->
+	<!--<pre>{{ pokemonEvoChain | json }}</pre> -->
 
 	<h4>Evolution Chain</h4>
 	<div ng-if="pokemonEvoChain == '' ">
@@ -35,15 +35,20 @@
 	  <p>Loading...</p>
 	</div>
 	<ul ng-repeat="evo in pokemonEvoChain">
+
+
 		
 		<a ng-click="changePokemon(evo.species_name)">
 			<li ng-if="evo.min_level == 1">
+				<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png" />
 				<strong>{{evo.species_name | capitalize}}</strong>
 			</li>
 		</a>
 		
 		<a ng-click="changePokemon(evo.species_name)">
 			<li ng-if="evo.trigger_name">
+				
+				<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png" />
 				<strong>{{ evo.species_name | capitalize }}</strong>
 
 			<!-- if by level up -->
