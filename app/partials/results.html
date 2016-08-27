@@ -9,7 +9,7 @@
 
 <div ng-if="pokemon" class="row">
 	
-	<section id="main-pokemon" class="col-xs-6">
+	<section id="main-pokemon" class="col-xs-5">
 		<!-- <h1>{{ pokemon.name | capitalize}}</h1> -->
 		<h5>#{{ pokemon.id | numLength:3}}</h5>
 
@@ -23,7 +23,7 @@
 	</section>
 	
 
-	<section id="base-stats" class="col-xs-6">
+	<section id="base-stats" class="col-xs-7">
 		<h4>Base Stats</h4>
 		<ul id="base-stats">
 			<li ng-repeat="stats in pokemon.stats | orderBy:'-'">
