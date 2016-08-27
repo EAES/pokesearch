@@ -116,7 +116,7 @@
 		<h3>Type Effectiveness</h3>
 		
 		<div ng-repeat="type in typeEffectiveness">
-			<h4>{{ type.name }}:</h4>
+			<h4 class="type {{type.name | lowercase}}">{{ type.name }}:</h4>
 			<ul ng-if="type.immunes.length">
 				<p>No damage against:</p>
 				<li class="type {{i | lowercase}}" ng-repeat="i in type.immunes">{{ i }}</li>

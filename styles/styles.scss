@@ -75,11 +75,15 @@ h1, h2, h3 {
 
 //types
 
+h4.type{
+	width: 100%;
+}
+
 .type{
 	background: #ccc;
 	// border: 1px solid #aaa;
 	padding: 5px 0 3px 0;
-	width: 118px;
+	width: 93px;
 	display: inline-block;
 	text-align: center;
 	margin-bottom: 5px;
@@ -93,6 +97,10 @@ h1, h2, h3 {
 	line-height: 100%;
 	color: white;
 	text-shadow: 0px 1px 0px #6B6B6B;
+
+	&:nth-child(3n+1){
+		margin-right: 0;
+	}
 
 	&.normal{
 		background: #BEBEAE;
