@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Pokemon Pixel Font Regular";
+  src: url("../assets/fonts/pokemon_pixel_font.eot?") format("eot"), url("../assets/fonts/pokemon_pixel_font.woff") format("woff"), url("../assets/fonts/pokemon_pixel_font.ttf") format("truetype"), url("../assets/fonts/pokemon_pixel_font.svg#Pokemon-Pixel-Font") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 #main-logo {
   height: 60px;
   display: block;
@@ -14,14 +19,23 @@ header {
     background: none;
     border: 2px solid white;
     color: white;
-    font-size: 30px;
+    font-size: 40px;
     padding: 20px;
-    border-radius: 8px; }
+    border-radius: 8px;
+    font-family: "Pokemon Pixel Font Regular";
+    letter-spacing: 2px;
+    line-height: 110%;
+    text-transform: capitalize; }
 
 .messages {
   text-align: center;
   padding: 1em;
   font-size: 10px; }
+
+h1, h2, h3, h4, h5 {
+  font-family: "Pokemon Pixel Font Regular";
+  font-size: 250%;
+  color: #6b6b6b; }
 
 section ul {
   padding: 0;
