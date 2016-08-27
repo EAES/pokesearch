@@ -11,20 +11,20 @@
 	
 	<section id="main-pokemon" class="col-xs-5">
 		<!-- <h1>{{ pokemon.name | capitalize}}</h1> -->
-		<h5>#{{ pokemon.id | numLength:3}}</h5>
+		<h3>#{{ pokemon.id | numLength:3}}</h3>
 
 		<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
 
-		<ul id="types">
-			<li	ng-repeat="types in pokemon.types">
+		<div id="types">
+			<i class="type {{ types.type.name }}" ng-repeat="types in pokemon.types">
 				{{types.type.name}}
-			</li>
-		</ul>
+			</i>
+		</div>
 	</section>
 	
 
 	<section id="base-stats" class="col-xs-7">
-		<h4>Base Stats</h4>
+		<h3>Base Stats</h3>
 		<ul id="base-stats">
 			<li ng-repeat="stats in pokemon.stats | orderBy:'-'">
 				<span class="{{stats.stat.name}}">{{stats.stat.name}}:</span>
@@ -38,7 +38,7 @@
 	<!--<pre>{{ pokemonEvoChain | json }}</pre> -->
 
 	<section id="evolution-chain" class="col-xs-12">
-			<h4>Evolution Chain</h4>
+			<h3>Evolution Chain</h3>
 			
 			<!-- loader -->
 			<div ng-if="pokemonEvoChain == '' " class="messages">
@@ -89,19 +89,48 @@
 				</a>
 			</ul>
 	</section>
+
+	<!-- <section class="col-xs-12">
+		<i class="type normal">normal</i>
+		<i class="type grass">grass</i>
+		<i class="type bug">bug</i>
+		<i class="type poison">poison</i>
+		<i class="type flying">flying</i>
+		<i class="type water">water</i>
+		<i class="type ground">ground</i>
+		<i class="type ghost">ghost</i>
+		<i class="type dark">dark</i>
+		<i class="type rock">rock</i>
+		<i class="type psychic">psychic</i>
+		<i class="type fire">fire</i>
+		<i class="type steel">steel</i>
+		<i class="type fighting">fighting</i>
+		<i class="type fairy">fairy</i>
+		<i class="type ice">ice</i>
+		<i class="type electric">electric</i>
+		<i class="type dragon">dragon</i>
+	</section> -->
 	
 
 	<section id="type-effectiveness" class="col-xs-12">
-		<h4>Type Effectiveness</h4>
+		<h3>Type Effectiveness</h3>
+		
 		<div ng-repeat="type in typeEffectiveness">
-			<h6>{{ type.name }}:</h6>
-			<ul ng-if="type.immunes">
-				<span>No damage against:</span>
-				<li>{{ type.immunes }}</li>
+			<h4>{{ type.name }}:</h4>
+			<ul ng-if="type.immunes.length">
+				<p>No damage against:</p>
+				<li class="type {{i | lowercase}}" ng-repeat="i in type.immunes">{{ i }}</li>
 			</ul>
-			<ul ng-if="type.weaknesses"> <span>Not very effective against:</span> {{ type.weaknesses }} </ul>
-			<ul ng-if="type.strengths"> <span>Super-effective against:</span> {{ type.strengths }} </ul>
+			<ul ng-if="type.weaknesses">
+				<p>Not very effective against:</p>
+				<li class="type {{i | lowercase}}" ng-repeat="i in type.weaknesses">{{ i }}</li>
+			</ul>
+			<ul ng-if="type.strengths">
+				<p>Super-effective against:</p>
+				<li class="type {{i | lowercase}}" ng-repeat="i in type.strengths">{{ i }}</li>
+			</ul>
 		</div>
+
 	</section>
 
 	<footer class="col-xs-12">

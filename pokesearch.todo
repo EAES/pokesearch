@@ -1,5 +1,6 @@
 ☐ hyphenated search fix (e.g. mr-mime, mime-jr) @high
-☐ convert search to lowercase @critical
+✔ convert search to lowercase @critical @done (16-08-27 10:13)
+☐ add predictive search
 ☐ figure out evolution use/edge cases
   ☐ move learn use case
   ☐ eevee edge case @high

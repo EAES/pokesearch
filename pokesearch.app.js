@@ -17,6 +17,16 @@
 	  };
 	});
 
+	//lowercase filter
+	app.filter('lowercase', function() {
+	  return function(input) {
+	    if (input!==null){
+	    	input = input.toLowerCase();
+		    return input;
+	    }
+	  };
+	});
+
 	//fixed number length filter
 	app.filter('numLength', function() {
 	  return function (n, len) {
@@ -102,6 +112,7 @@
 			$http.get("http://pokeapi.co/api/v2/pokemon/"+$scope.search+"/").then(function(response){
 				
 				$scope.pokemon = response.data;
+				$scope.serviceError = '';
 
 				//get weaknesses after fetching pokemon data
 				$http.get("assets/typeweakness.json").then(function(response){
@@ -125,9 +136,9 @@
 							if(type.toUpperCase() === typeWeakness[i].name.toUpperCase()){
 								currPokeWeaknesses[i] = {};
 								currPokeWeaknesses[i].name = typeWeakness[i].name;
-								currPokeWeaknesses[i].immunes = typeWeakness[i].immunes.join(', ');
-								currPokeWeaknesses[i].weaknesses = typeWeakness[i].weaknesses.join(', ');
-								currPokeWeaknesses[i].strengths = typeWeakness[i].strengths.join(', ');
+								currPokeWeaknesses[i].immunes = typeWeakness[i].immunes;
+								currPokeWeaknesses[i].weaknesses = typeWeakness[i].weaknesses;
+								currPokeWeaknesses[i].strengths = typeWeakness[i].strengths;
 							}
 						}
 					}
