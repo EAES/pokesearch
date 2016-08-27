@@ -35,6 +35,18 @@ header{
 		left: 0px;
 	}
 
+	#search-wrapper{
+		position: relative;
+
+		span.glyphicon-search{
+			position: absolute;
+			right: 15px;
+			top: 10px;
+			color: white;
+			font-size: 26px;
+		}
+	}
+
 	.form-control{
 		background: none;
 		border: 2px solid white;
