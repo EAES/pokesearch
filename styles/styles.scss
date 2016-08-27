@@ -73,6 +73,103 @@ h1, h2, h3, h4, h5{
 	color: #6b6b6b;
 }
 
+//types
+
+.type{
+	background: #ccc;
+	// border: 1px solid #aaa;
+	padding: 5px 0 3px 0;
+	width: 105px;
+	display: inline-block;
+	text-align: center;
+	margin-bottom: 5px;
+	margin-right: 2px;
+	border-radius: 4px;
+	font-family: "Pokemon Pixel Font Regular";
+	font-size: 20px;
+	font-style: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	line-height: 100%;
+	color: white;
+	text-shadow: 0px 1px 0px #6B6B6B;
+
+	&.normal{
+		background: #BEBEAE;
+	}
+	
+	&.grass{
+		background: #89D24E;
+	}
+
+	&.bug{
+		background: #C0D021;
+	}
+
+	&.poison{
+		background: #AB5EA3;
+	}
+
+	&.flying{
+		background: #8AACF4;
+	}
+
+	&.water{
+		background: #56ACFF;
+	}
+
+	&.ground{
+		background: #E7C755;
+	}
+
+	&.ghost{
+		background: #615CC8;
+	}
+
+	&.dark{
+		background: #533F35;
+	}
+
+	&.rock{
+		background: #CDBC71;
+	}
+
+	&.psychic{
+		background: #FA65B3;
+	}
+
+	&.fire{
+		background: #FA5442;
+	}
+
+	&.steel{
+		background: #C4C2DB;
+	}
+
+	&.fighting{
+		background: #A95648;
+	}
+
+	&.fairy{
+		background: #FAAFFF;
+	}
+
+	&.ice{
+		background: #96F1FF;
+	}
+
+	&.electric{
+		background: #FDE33C;
+	}
+
+	&.dragon{
+		background: #8975FF;
+	}
+
+
+
+}
+
 
 section{
 	ul{
@@ -86,6 +183,10 @@ section{
 	&#main-pokemon{
 		text-align: center;
 		border-right: 1px solid #ccc;
+
+		img{
+			margin-bottom: 10px;
+		}
 	}
 
 	&#base-stats{

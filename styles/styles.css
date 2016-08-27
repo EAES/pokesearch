@@ -44,7 +44,9 @@ header {
     font-family: "Pokemon Pixel Font Regular";
     letter-spacing: 2px;
     line-height: 110%;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    position: relative;
+    z-index: 1; }
 
 .messages {
   text-align: center;
@@ -56,6 +58,60 @@ h1, h2, h3, h4, h5 {
   font-size: 250%;
   color: #6b6b6b; }
 
+.type {
+  background: #ccc;
+  padding: 5px 0 3px 0;
+  width: 105px;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-right: 2px;
+  border-radius: 4px;
+  font-family: "Pokemon Pixel Font Regular";
+  font-size: 20px;
+  font-style: normal;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 100%;
+  color: white;
+  text-shadow: 0px 1px 0px #6B6B6B; }
+  .type.normal {
+    background: #BEBEAE; }
+  .type.grass {
+    background: #89D24E; }
+  .type.bug {
+    background: #C0D021; }
+  .type.poison {
+    background: #AB5EA3; }
+  .type.flying {
+    background: #8AACF4; }
+  .type.water {
+    background: #56ACFF; }
+  .type.ground {
+    background: #E7C755; }
+  .type.ghost {
+    background: #615CC8; }
+  .type.dark {
+    background: #533F35; }
+  .type.rock {
+    background: #CDBC71; }
+  .type.psychic {
+    background: #FA65B3; }
+  .type.fire {
+    background: #FA5442; }
+  .type.steel {
+    background: #C4C2DB; }
+  .type.fighting {
+    background: #A95648; }
+  .type.fairy {
+    background: #FAAFFF; }
+  .type.ice {
+    background: #96F1FF; }
+  .type.electric {
+    background: #FDE33C; }
+  .type.dragon {
+    background: #8975FF; }
+
 section ul {
   padding: 0;
   margin: 0; }
@@ -64,6 +120,8 @@ section ul {
 section#main-pokemon {
   text-align: center;
   border-right: 1px solid #ccc; }
+  section#main-pokemon img {
+    margin-bottom: 10px; }
 section#evolution-chain {
   margin-top: 10px; }
   section#evolution-chain ul {
