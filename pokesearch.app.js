@@ -17,16 +17,6 @@
 	  };
 	});
 
-	//lowercase filter
-	app.filter('lowercase', function() {
-	  return function(input) {
-	    if (input!==null){
-	    	input = input.toLowerCase();
-		    return input;
-	    }
-	  };
-	});
-
 	//fixed number length filter
 	app.filter('numLength', function() {
 	  return function (n, len) {
