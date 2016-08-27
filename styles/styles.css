@@ -54,12 +54,34 @@ section ul {
   section ul li {
     list-style: none; }
 section#main-pokemon {
-  text-align: center; }
-section#evolution-chain ul {
-  padding: 0;
-  margin: 0; }
-  section#evolution-chain ul li strong {
-    display: block; }
+  text-align: center;
+  border-right: 1px solid #ccc; }
+section#evolution-chain {
+  margin-top: 10px; }
+  section#evolution-chain ul {
+    padding: 0;
+    margin: 0; }
+    section#evolution-chain ul li::before {
+      content: "";
+      background: #d8d8d8;
+      border: 1px solid #979797;
+      border-radius: 100px;
+      height: 70px;
+      width: 70px;
+      display: inline-block;
+      margin: 0 auto;
+      z-index: -1; }
+    section#evolution-chain ul li {
+      text-align: center;
+      position: relative; }
+      section#evolution-chain ul li img {
+        position: absolute;
+        z-index: 3;
+        top: -10px;
+        left: 51%;
+        transform: translateX(-50%); }
+    section#evolution-chain ul li strong {
+      display: block; }
 
 footer {
   border-top: 1px solid #ccc;
