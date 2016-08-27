@@ -51,12 +51,13 @@
 			if($scope.search === ""){
 				$scope.details = "No results.";
 			} else {
+				$scope.search = $scope.search.toLowerCase();
 				fetch();
 			}
 		});
 
 		//set default search param to first pokemon in pokedex order
-		$scope.search = "bulbasaur";
+		$scope.search = "Bulbasaur";
 
 		function fetch(){
 
