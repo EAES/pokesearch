@@ -71,7 +71,7 @@ header{
 
 h1, h2, h3 {
 	font-family: "Pokemon Pixel Font Regular";
-	font-size: 250%;
+	font-size: 220%;
 	color: #6b6b6b;
 }
 
@@ -181,7 +181,6 @@ h4.type{
 
 }
 
-
 section{
 	ul{
 		padding: 0;
@@ -231,6 +230,7 @@ section{
 			li{
 				text-align:center;
 				position: relative;
+				color: #6b6b6b;
 
 				img{
 					position: absolute;
@@ -239,10 +239,13 @@ section{
 					left: 51%;
 					transform:translateX(-50%);
 				}
-			}
 
-			li strong{
-				display: block;
+				strong{
+					display: block;
+					margin-top: 10px;
+					text-decoration: underline;
+				}
+
 			}
 		}
 	}
