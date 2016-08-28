@@ -35,17 +35,17 @@ header {
       right: 15px;
       top: 10px;
       color: white;
-      font-size: 26px; }
+      font-size: 24px; }
   header .form-control {
     background: none;
     border: 2px solid white;
     color: white;
-    font-size: 40px;
-    padding: 20px;
+    font-size: 32px;
+    padding: 20px 15px;
     border-radius: 8px;
     font-family: "Pokemon Pixel Font Regular";
     letter-spacing: 2px;
-    line-height: 110%;
+    line-height: 100%;
     text-transform: capitalize; }
 
 .messages {
@@ -130,7 +130,8 @@ section#main-pokemon {
     margin-bottom: 10px; }
   section#main-pokemon .type {
     margin-left: 5px;
-    margin-right: 0; }
+    margin-right: 0;
+    font-size: 105%; }
 section#evolution-chain {
   margin-top: 10px; }
   section#evolution-chain ul {
