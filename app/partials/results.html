@@ -25,9 +25,10 @@
 	<section id="base-stats" class="col-xs-7">
 		<h3>Base Stats</h3>
 		<ul id="base-stats">
-			<li ng-repeat="stats in pokemon.stats | orderBy:'-'">
-				<span class="{{stats.stat.name}}">{{stats.stat.name}}:</span>
-				<span class="stat">{{stats.base_stat}}</span>
+			<li ng-repeat="stats in pokemon.stats | orderBy:'-'" class="{{stats.stat.name}}">
+				<div class="stat-title">{{stats.stat.name}}:</div>
+				<span class="stat-no"> {{stats.base_stat}} </span>
+				<div class="stat-bar" style="width:{{stats.base_stat}}px;"></div>
 			</li>
 		</ul>
 	</section>

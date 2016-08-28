@@ -191,6 +191,11 @@ section{
 	}
 
 	&#main-pokemon{
+		h3{
+			font-size: 18px;
+			margin-top: 30px;
+		}
+
 		text-align: center;
 		border-right: 1px solid #ccc;
 
@@ -206,6 +211,120 @@ section{
 	}
 
 	&#base-stats{
+		padding: 0 0px;
+		overflow: hidden;
+
+		h3{
+			text-align:center;
+			margin-bottom: 5px;
+		}
+
+		li{
+			height: 23px;
+			width: 100%;
+			padding: 0px;
+			margin: 0px;
+			font-size: 20px;
+			letter-spacing: 1px;
+			font-family: "Pokemon Pixel Font Regular";
+			color: #6b6b6b;
+			position: relative;
+
+			.stat-title{
+				font-size: 0px;
+				display: inline-block;
+			}
+
+			.stat-title::after{
+				text-align: right;
+				width: 45px;
+				display: block;
+				font-size: 14px;
+				top: -3px;
+				position: relative;
+
+			}
+
+			.stat-no{
+				position: relative;
+				top: -2px;
+				padding-right: 4px;
+				width: 28px;
+				height: 20px;
+				display: inline-block;
+				// border: 1px solid purple;
+				text-align: center;
+			}
+
+			.stat-bar{
+				display: inline-block;
+				height: 60%;
+				position:absolute;
+				top: 3px;
+				border-radius: 3px;
+			}
+
+		}
+
+		li.hp{
+			.stat-bar{
+				background: #D0021B;
+				border: 1px solid #95091A;
+			}
+			.stat-title::after{
+				content: "HP: ";
+			}
+		}
+
+		li.attack{
+			.stat-bar{
+				background: #F5A623;
+				border: 1px solid #BA7A10;
+			}
+			.stat-title::after{
+				content: "ATK: ";
+			}
+		}
+
+		li.defense{
+			.stat-bar{
+				background: #F8E71C;
+				border: 1px solid #B8AC14;
+			}
+			.stat-title::after{
+				content: "DEF: ";
+			}
+		}
+
+		li.special-attack{
+			.stat-bar{
+				background: #7ED321;
+				border: 1px solid #5CA60A;
+			}
+			.stat-title::after{
+				content: "SATK: ";
+			}
+		}
+
+		li.special-defense{
+			.stat-bar{
+				background: #4A90E2;
+				border: 1px solid #2468B7;
+			}
+			.stat-title::after{
+				content: "SDEF: ";
+			}
+		}
+
+		li.speed{
+			.stat-bar{
+				background: #ED94FF;
+				border: 1px solid #D24BED;
+			}
+			.stat-title::after{
+				content: "SPD: ";
+			}
+		}
 
 	}
 

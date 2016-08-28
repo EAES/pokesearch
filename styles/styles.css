@@ -126,12 +126,85 @@ section ul {
 section#main-pokemon {
   text-align: center;
   border-right: 1px solid #ccc; }
+  section#main-pokemon h3 {
+    font-size: 18px;
+    margin-top: 30px; }
   section#main-pokemon img {
     margin-bottom: 10px; }
   section#main-pokemon .type {
     margin-left: 5px;
     margin-right: 0;
     font-size: 105%; }
+section#base-stats {
+  padding: 0 0px;
+  overflow: hidden; }
+  section#base-stats h3 {
+    text-align: center;
+    margin-bottom: 5px; }
+  section#base-stats li {
+    height: 23px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-family: "Pokemon Pixel Font Regular";
+    color: #6b6b6b;
+    position: relative; }
+    section#base-stats li .stat-title {
+      font-size: 0px;
+      display: inline-block; }
+    section#base-stats li .stat-title::after {
+      text-align: right;
+      width: 45px;
+      display: block;
+      font-size: 14px;
+      top: -3px;
+      position: relative; }
+    section#base-stats li .stat-no {
+      position: relative;
+      top: -2px;
+      padding-right: 4px;
+      width: 28px;
+      height: 20px;
+      display: inline-block;
+      text-align: center; }
+    section#base-stats li .stat-bar {
+      display: inline-block;
+      height: 60%;
+      position: absolute;
+      top: 3px;
+      border-radius: 3px; }
+  section#base-stats li.hp .stat-bar {
+    background: #D0021B;
+    border: 1px solid #95091A; }
+  section#base-stats li.hp .stat-title::after {
+    content: "HP: "; }
+  section#base-stats li.attack .stat-bar {
+    background: #F5A623;
+    border: 1px solid #BA7A10; }
+  section#base-stats li.attack .stat-title::after {
+    content: "ATK: "; }
+  section#base-stats li.defense .stat-bar {
+    background: #F8E71C;
+    border: 1px solid #B8AC14; }
+  section#base-stats li.defense .stat-title::after {
+    content: "DEF: "; }
+  section#base-stats li.special-attack .stat-bar {
+    background: #7ED321;
+    border: 1px solid #5CA60A; }
+  section#base-stats li.special-attack .stat-title::after {
+    content: "SATK: "; }
+  section#base-stats li.special-defense .stat-bar {
+    background: #4A90E2;
+    border: 1px solid #2468B7; }
+  section#base-stats li.special-defense .stat-title::after {
+    content: "SDEF: "; }
+  section#base-stats li.speed .stat-bar {
+    background: #ED94FF;
+    border: 1px solid #D24BED; }
+  section#base-stats li.speed .stat-title::after {
+    content: "SPD: "; }
 section#evolution-chain {
   margin-top: 10px; }
   section#evolution-chain ul {
