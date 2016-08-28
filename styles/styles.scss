@@ -375,6 +375,10 @@ section{
 					text-decoration: underline;
 				}
 
+				.evo-item-name{
+					text-transform: capitalize;
+				}
+
 			}
 		}
 	}
@@ -383,5 +387,9 @@ section{
 footer{
 	border-top: 1px solid #ccc;
 	margin-top: 1em;
-	padding-top: 1em;
+	padding: 1em 0;
+	color: #A9A9A9;
+	font-family: "Pokemon Pixel Font Regular";
+	text-align: center;
+	letter-spacing: 1px;
 }

@@ -75,7 +75,7 @@
 						</span>
 						
 						<!-- if by item -->
-						<span ng-if="evo.trigger_name == 'use-item' ">{{evo.item.name}}
+						<span ng-if="evo.trigger_name == 'use-item' ">{{evo.item.name | dehyphen | capitalize}}
 							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
 						</span>
 						

@@ -7,6 +7,16 @@
 
 	var app = angular.module('pokesearch', ['ui.bootstrap']);
 
+	//dehyphen filter
+	app.filter('dehyphen', function() {
+	  return function(input) {
+	    if (input!==null){
+	    	// input = input.toLowerCase();
+		    return input.replace(/-/g, " ");
+	    }
+	  };
+	});
+
 	//capitilize filter
 	app.filter('capitalize', function() {
 	  return function(input) {
@@ -83,7 +93,7 @@
 					    "min_level": !evoDetails ? 1 : evoDetails.min_level,
 					    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
 					    "item": !evoDetails ? null : evoDetails.item,
-					    "held_item": !evoDetails ? null : evoDetails.held_item,
+					    "held_item": !evoDetails ? null : (evoDetails.held_item),
 					    "overworld_rain": !evoDetails ? null : evoDetails.needs_overworld_rain,
 					    "happiness": !evoDetails ? null : evoDetails.min_happiness
 					  });
