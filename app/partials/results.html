@@ -3,10 +3,11 @@
   <img src="assets/images/loader.gif" />
   <p>Loading...</p>
 </div>
+
 <!-- error -->
 <p class="bg-warning" ng-if="serviceError">{{ serviceError }}</p>
-<!-- content -->
 
+<!-- content -->
 <div ng-if="pokemon" class="row">
 	
 	<section id="main-pokemon" class="col-xs-5">
@@ -20,7 +21,6 @@
 			</i>
 		</div>
 	</section>
-	
 
 	<section id="base-stats" class="col-xs-7">
 		<h3>Base Stats</h3>
@@ -32,10 +32,6 @@
 		</ul>
 	</section>
 	
-
-	 <!-- <pre>{{ pokemonEvoDump | json }}</pre> -->
-	<!--<pre>{{ pokemonEvoChain | json }}</pre> -->
-
 	<section id="evolution-chain" class="col-xs-12">
 			<h3>Evolution Chain</h3>
 			
@@ -88,28 +84,6 @@
 				</a>
 			</ul>
 	</section>
-
-	<!-- <section class="col-xs-12">
-		<i class="type normal">normal</i>
-		<i class="type grass">grass</i>
-		<i class="type bug">bug</i>
-		<i class="type poison">poison</i>
-		<i class="type flying">flying</i>
-		<i class="type water">water</i>
-		<i class="type ground">ground</i>
-		<i class="type ghost">ghost</i>
-		<i class="type dark">dark</i>
-		<i class="type rock">rock</i>
-		<i class="type psychic">psychic</i>
-		<i class="type fire">fire</i>
-		<i class="type steel">steel</i>
-		<i class="type fighting">fighting</i>
-		<i class="type fairy">fairy</i>
-		<i class="type ice">ice</i>
-		<i class="type electric">electric</i>
-		<i class="type dragon">dragon</i>
-	</section> -->
-	
 
 	<section id="type-effectiveness" class="col-xs-12">
 		<h3>{{ pokemon.name | capitalize}}'s Type Offenses</h3>
