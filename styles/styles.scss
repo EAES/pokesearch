@@ -47,6 +47,14 @@ header{
 			color: white;
 			font-size: 24px;
 		}
+
+		//type ahead dropdown
+		.dropdown-menu{
+			width: 100%;
+			font-family: "Pokemon Pixel Font Regular";
+			font-size: 24px;
+			letter-spacing: 1px;
+		}
 	}
 
 	.form-control{
@@ -351,6 +359,7 @@ section{
 				text-align:center;
 				position: relative;
 				color: #6b6b6b;
+				cursor: pointer;
 
 				img{
 					position: absolute;

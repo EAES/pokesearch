@@ -5,7 +5,7 @@
 (function(){
 	"use strict";
 
-	var app = angular.module('pokesearch', []);
+	var app = angular.module('pokesearch', ['ui.bootstrap']);
 
 	//capitilize filter
 	app.filter('capitalize', function() {
@@ -58,6 +58,11 @@
 
 		//set default search param to first pokemon in pokedex order
 		$scope.search = "Bulbasaur";
+
+		//typeahead search
+		$http.get("assets/pokemon_names.json").then(function(response){
+			$scope.predictpokemon  = response.data;
+		});
 
 		function fetch(){
 

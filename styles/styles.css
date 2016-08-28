@@ -36,6 +36,11 @@ header {
       top: 10px;
       color: white;
       font-size: 24px; }
+    header #search-wrapper .dropdown-menu {
+      width: 100%;
+      font-family: "Pokemon Pixel Font Regular";
+      font-size: 24px;
+      letter-spacing: 1px; }
   header .form-control {
     background: none;
     border: 2px solid white;
@@ -223,7 +228,8 @@ section#evolution-chain {
     section#evolution-chain ul li {
       text-align: center;
       position: relative;
-      color: #6b6b6b; }
+      color: #6b6b6b;
+      cursor: pointer; }
       section#evolution-chain ul li img {
         position: absolute;
         z-index: 3;
