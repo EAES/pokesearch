@@ -28,15 +28,15 @@ header {
     bottom: -20px;
     left: 0px;
     right: 0px; }
-  header #search-wrapper {
+  header #search-form {
     position: relative; }
-    header #search-wrapper span.glyphicon-search {
+    header #search-form span.glyphicon-search {
       position: absolute;
       right: 15px;
       top: 10px;
       color: white;
       font-size: 24px; }
-    header #search-wrapper .dropdown-menu {
+    header #search-form .dropdown-menu {
       width: 100%;
       font-family: "Pokemon Pixel Font Regular";
       font-size: 24px;

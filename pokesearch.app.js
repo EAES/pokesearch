@@ -47,31 +47,26 @@
 	});
 
 	app.controller('MainController', ['$scope', '$http', function($scope, $http){
-		$scope.$watch('search', function(){
-			if($scope.search === ""){
-				$scope.details = "No results.";
-			} else {
-				$scope.search = $scope.search.toLowerCase();
-				fetch();
-			}
-		});
 
 		//set default search param to first pokemon in pokedex order
-		$scope.search = "Bulbasaur";
+		$scope.search = "bulbasaur";
 
 		//typeahead search
 		$http.get("assets/pokemon_names.json").then(function(response){
 			$scope.predictpokemon  = response.data;
 		});
 
-		function fetch(){
+		$scope.fetch = function(){
 
 			$scope.pokemonEvoChain = '';
 			$scope.serviceError = '';
+			$scope.pokemon = "";
 
 			//cature evo chain
-			$http.get("http://pokeapi.co/api/v2/pokemon-species/"+$scope.search+"/").then(function(response){
+			$http.get("http://pokeapi.co/api/v2/pokemon-species/"+$scope.search.toLowerCase()+"/").then(function(response){
+				
 				$scope.pokemonSpecies = response.data;
+				
 				$http.get($scope.pokemonSpecies.evolution_chain.url).then(function(response){
 					
 					//thanks Ryan @ stackoverflow!
@@ -101,11 +96,8 @@
 				});
 			});
 
-			$scope.pokemon = "";
-
 			//get basic pokemon data
-			// TODO: don't connect each time, try and fetch main object and cache in localStorage
-			$http.get("http://pokeapi.co/api/v2/pokemon/"+$scope.search+"/").then(function(response){
+			$http.get("http://pokeapi.co/api/v2/pokemon/"+$scope.search.toLowerCase()+"/").then(function(response){
 				
 				$scope.pokemon = response.data;
 				$scope.serviceError = '';
@@ -158,7 +150,10 @@
 			}
 
 			);
-		}
+		};
+
+		//initial search on first load
+		$scope.fetch($scope.search);
 
 		$scope.getPokemonIdFromUrl = function(url){
 			url = url.slice(0, -1);
@@ -168,6 +163,7 @@
 
 		$scope.changePokemon = function(newSearch){
 			$scope.search = newSearch;
+			$scope.fetch(newSearch);
 		};
 
 		//select all when clicking inside text input box

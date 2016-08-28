@@ -19,18 +19,18 @@
 <header class="row">
 	<img id="main-logo" src="assets/images/pokesearchlogo.svg" alt="PokeSearch">
 	
-	<div id="search-wrapper">
-		
+	<form id="search-form" ng-submit="fetch()">
 		<input class="form-control" type="text"
 			   placeholder="Search Pokemon"
 			   ng-model="search"
-			   ng-model-options="{debounce: 800}"
 			   uib-typeahead="pokemon for pokemon in predictpokemon | filter:$viewValue | limitTo:8"
+			   typeahead-on-select="fetch()"
 			   onclick="select()">
+		<!-- <input type="submit"> -->
 		<span class="glyphicon glyphicon-search" aria-hidden="true"></i>
 		<span class="sr-only">Search:</span>
 
-	</div>
+	</form>
 </header>
 
 <div ng-include="'app/partials/results.html'"></div>
