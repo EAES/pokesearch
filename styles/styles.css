@@ -8,9 +8,6 @@
   display: block;
   margin: 0 auto 20px auto; }
 
-#pokemon-art {
-  width: 100%; }
-
 header {
   background: #DD0019;
   padding: 20px;
@@ -70,6 +67,7 @@ h4.type {
 .type {
   background: #ccc;
   padding: 5px 0 3px 0;
+  min-width: 80px;
   width: 32.33%;
   display: inline-block;
   text-align: center;
@@ -129,17 +127,20 @@ section ul {
   section ul li {
     list-style: none; }
 section#main-pokemon {
+  padding: 0 7px;
   text-align: center;
   border-right: 1px solid #ccc; }
   section#main-pokemon h3 {
     font-size: 18px;
     margin-top: 30px; }
-  section#main-pokemon img {
+  section#main-pokemon #pokemon-art {
+    height: 100px;
     margin-bottom: 10px; }
   section#main-pokemon .type {
-    margin-left: 5px;
+    margin-left: 3px;
     margin-right: 0;
-    font-size: 105%; }
+    font-size: 95%;
+    min-width: 42%; }
 section#base-stats {
   padding: 0px;
   overflow-x: scroll;
@@ -251,4 +252,5 @@ footer {
   color: #A9A9A9;
   font-family: "Pokemon Pixel Font Regular";
   text-align: center;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-size: 13px; }

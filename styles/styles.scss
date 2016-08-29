@@ -13,10 +13,6 @@
 	margin: 0 auto 20px auto;
 }
 
-#pokemon-art{
-	width: 100%;
-}
-
 header{
 	background: #DD0019;
 	padding: 20px;
@@ -94,6 +90,7 @@ h4.type{
 	background: #ccc;
 	// border: 1px solid #aaa;
 	padding: 5px 0 3px 0;
+	min-width: 80px;
 	width: 32.33%;
 	display: inline-block;
 	text-align: center;
@@ -199,22 +196,25 @@ section{
 	}
 
 	&#main-pokemon{
+		padding: 0 7px;
+		text-align: center;
+		border-right: 1px solid #ccc;
+
 		h3{
 			font-size: 18px;
 			margin-top: 30px;
 		}
 
-		text-align: center;
-		border-right: 1px solid #ccc;
-
-		img{
+		#pokemon-art{
+			height: 100px;
 			margin-bottom: 10px;
 		}
 
 		.type{
-			margin-left: 5px;
+			margin-left: 3px;
 			margin-right: 0;
-			font-size: 105%;
+			font-size: 95%;
+			min-width: 42%;
 		}
 	}
 
@@ -392,4 +392,5 @@ footer{
 	font-family: "Pokemon Pixel Font Regular";
 	text-align: center;
 	letter-spacing: 1px;
+	font-size: 13px;
 }
