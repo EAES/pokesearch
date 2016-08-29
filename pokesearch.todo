@@ -1,6 +1,6 @@
-☐ hyphenated search fix (e.g. mr-mime, mime-jr) @high
+✔ hyphenated search fix (e.g. mr-mime, mime-jr) @high @done (16-08-28 21:35)
 ✔ convert search to lowercase @critical @done (16-08-27 10:13)
-☐ add predictive search
+✔ add predictive search @done (16-08-28 21:35)
 ☐ figure out evolution use/edge cases
   ☐ move learn use case
   ☐ eevee edge case @high
@@ -13,4 +13,5 @@
   ☐ show mega evos if present
 ☐ speed up capture of evo chain @low
 ☐ cache results @low
-☐ styles
+☐ plural possesive type offenses (s's)
+✔ styles @done (16-08-28 21:35)
