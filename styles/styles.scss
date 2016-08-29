@@ -219,8 +219,9 @@ section{
 	}
 
 	&#base-stats{
-		padding: 0 0px;
-		overflow: hidden;
+		padding: 0px;
+		overflow-x: scroll;
+		overflow-y: hidden;
 
 		h3{
 			text-align:center;
@@ -237,6 +238,8 @@ section{
 			font-family: "Pokemon Pixel Font Regular";
 			color: #6b6b6b;
 			position: relative;
+			display: inline-block;
+			margin-right: 2.3em;
 
 			.stat-title{
 				font-size: 0px;
@@ -260,7 +263,6 @@ section{
 				width: 28px;
 				height: 20px;
 				display: inline-block;
-				// border: 1px solid purple;
 				text-align: center;
 			}
 
