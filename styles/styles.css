@@ -156,9 +156,7 @@ section#base-stats {
     letter-spacing: 1px;
     font-family: "Pokemon Pixel Font Regular";
     color: #6b6b6b;
-    position: relative;
-    display: inline-block;
-    margin-right: 2.3em; }
+    position: relative; }
     section#base-stats li .stat-title {
       font-size: 0px;
       display: inline-block; }
