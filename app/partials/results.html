@@ -72,6 +72,7 @@
 							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
 							<!-- if held item + trade -->
 							<span ng-if="evo.held_item !== null ">w/ {{ evo.held_item.name | capitalize }}</span>
+							<span ng-if="evo.held_item !== null ">w/ {{ evo.held_item.name | dehyphen | capitalize }}</span>
 						</span>
 						
 						<!-- if by item -->
