@@ -15,9 +15,9 @@
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="styles/styles.css">
 </head>
-<body ng-controller="MainController" class="container">
+<body ng-controller="MainController">
 
-<header class="row">
+<header class="col-xs-12">
 	<img id="main-logo" src="assets/images/pokesearchlogo.svg" alt="PokeSearch">
 	
 	<form id="search-form" ng-submit="fetch()">
@@ -36,7 +36,7 @@
 	</form>
 </header>
 
-<div ng-include="'app/partials/results.html'"></div>
+<div class="container" ng-include="'app/partials/results.html'"></div>
 
 </body>
 </html>
