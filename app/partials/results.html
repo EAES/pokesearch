@@ -95,11 +95,11 @@
 				<p>No damage against:</p>
 				<li class="type {{i | lowercase}}" ng-repeat="i in type.immunes">{{ i }}</li>
 			</ul>
-			<ul ng-if="type.weaknesses">
+			<ul ng-if="type.weaknesses.length">
 				<p>Not very effective against:</p>
 				<li class="type {{i | lowercase}}" ng-repeat="i in type.weaknesses">{{ i }}</li>
 			</ul>
-			<ul ng-if="type.strengths">
+			<ul ng-if="type.strengths.length">
 				<p>Super-effective against:</p>
 				<li class="type {{i | lowercase}}" ng-repeat="i in type.strengths">{{ i }}</li>
 			</ul>
