@@ -1,5 +1,4 @@
 /*global angular:true */
-/* exported scope */
 
 //IIFE
 (function(){
