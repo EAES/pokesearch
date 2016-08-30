@@ -319,11 +319,14 @@ section{
 	&#evolution-chain{
 		margin-top: 10px;
 
-		ul{
+		.evo-chain-link{
 			padding: 0;
 			margin: 0;
+			display: inline-block;
+			vertical-align: top;
+			width: 33.33%;
 
-			li::before{
+			.evo-item::before{
 				content: "";
 				background: #d8d8d8;
 				border: 1px solid #979797;
@@ -335,7 +338,7 @@ section{
 				z-index: -1;
 			}
 
-			li{
+			.evo-item{
 				text-align:center;
 				position: relative;
 				color: #6b6b6b;
@@ -409,7 +412,7 @@ footer{
 
 	.messages{
 		img{
-			width: 40px;
+			width: 35px;
 		}
 	}
 
@@ -469,7 +472,42 @@ footer{
 	}
 
 	section#evolution-chain{
-		
+		text-align: center;
+
+		h3{
+			text-align: center;
+			font-size: 40px;
+			margin-top: 30px;
+		}
+
+		.evo-chain-link{
+			// margin-left: 7%;
+			// float: left;
+			margin-right: 75px;
+			display: inline-block;
+			// border: 1px solid green;
+			vertical-align: top;
+			width: 20%;
+
+			&:nth-child(3n+1){
+				margin-right: 0;
+			}
+
+
+			.evo-item::before{
+				height: 96px;
+				width: 96px;
+			}
+
+			.evo-item{
+			}
+
+			img{
+				width: 144px;
+				top: -21px !important;
+			}
+		}
+
 	}
 
 	section#type-effectiveness{

@@ -220,10 +220,13 @@ section#base-stats {
     content: "SPD: "; }
 section#evolution-chain {
   margin-top: 10px; }
-  section#evolution-chain ul {
+  section#evolution-chain .evo-chain-link {
     padding: 0;
-    margin: 0; }
-    section#evolution-chain ul li::before {
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    width: 33.33%; }
+    section#evolution-chain .evo-chain-link .evo-item::before {
       content: "";
       background: #d8d8d8;
       border: 1px solid #979797;
@@ -233,22 +236,22 @@ section#evolution-chain {
       display: inline-block;
       margin: 0 auto;
       z-index: -1; }
-    section#evolution-chain ul li {
+    section#evolution-chain .evo-chain-link .evo-item {
       text-align: center;
       position: relative;
       color: #6b6b6b;
       cursor: pointer; }
-      section#evolution-chain ul li img {
+      section#evolution-chain .evo-chain-link .evo-item img {
         position: absolute;
         z-index: 3;
         top: -10px;
         left: 51%;
         transform: translateX(-50%); }
-      section#evolution-chain ul li strong {
+      section#evolution-chain .evo-chain-link .evo-item strong {
         display: block;
         margin-top: 10px;
         text-decoration: underline; }
-      section#evolution-chain ul li .evo-item-name {
+      section#evolution-chain .evo-chain-link .evo-item .evo-item-name {
         text-transform: capitalize; }
 section#type-effectiveness h4 {
   width: 100%;
@@ -282,7 +285,7 @@ footer {
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .messages img {
-    width: 40px; }
+    width: 35px; }
 
   header {
     height: 200px; }
@@ -313,6 +316,26 @@ footer {
     font-size: 30px; }
     section#base-stats li .stat-no {
       width: 40px; }
+
+  section#evolution-chain {
+    text-align: center; }
+    section#evolution-chain h3 {
+      text-align: center;
+      font-size: 40px;
+      margin-top: 30px; }
+    section#evolution-chain .evo-chain-link {
+      margin-right: 75px;
+      display: inline-block;
+      vertical-align: top;
+      width: 20%; }
+      section#evolution-chain .evo-chain-link:nth-child(3n+1) {
+        margin-right: 0; }
+      section#evolution-chain .evo-chain-link .evo-item::before {
+        height: 96px;
+        width: 96px; }
+      section#evolution-chain .evo-chain-link img {
+        width: 144px;
+        top: -21px !important; }
 
   section#type-effectiveness .type {
     width: 15.82%;
