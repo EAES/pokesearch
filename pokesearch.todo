@@ -14,4 +14,7 @@
 ☐ speed up capture of evo chain @low
 ☐ cache results @low
 ☐ plural possesive type offenses (s's)
+☐ add game locations in modal @high
+☐ fix edge case searches (e.g. Darmanitan, Mr. Mime, Landorus/Tornadus/Thundurus-incarnate) @critical
+☐ Add natures information modal
 ✔ styles @done (16-08-28 21:35)
