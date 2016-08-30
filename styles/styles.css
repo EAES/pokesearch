@@ -332,6 +332,8 @@ footer {
       section#evolution-chain .evo-chain-link:nth-child(2n+1) {
         margin-left: 80px;
         margin-right: 80px; }
+      section#evolution-chain .evo-chain-link:last-child {
+        margin: 0; }
       section#evolution-chain .evo-chain-link .evo-item::before {
         height: 96px;
         width: 96px; }

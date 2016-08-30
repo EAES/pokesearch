@@ -491,7 +491,8 @@ footer{
 				margin-right: 80px;
 			}
 
-			&:nth-child(3n+1){
+			&:last-child{
+				margin: 0;
 			}
 
 			.evo-item::before{
