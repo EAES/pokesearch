@@ -288,13 +288,13 @@ footer {
     width: 35px; }
 
   header {
-    height: 200px; }
+    height: 210px; }
     header::after {
       background-size: auto 80%; }
     header #main-logo {
-      height: 80px; }
+      height: 90px; }
     header #search-form {
-      width: 50%;
+      width: 60%;
       margin: 0 auto; }
       header #search-form .form-control {
         height: 50px;
@@ -309,13 +309,15 @@ footer {
     font-size: 150%;
     margin: 0 5px; }
 
-  section#base-stats h3 {
-    font-size: 40px; }
-  section#base-stats li {
-    height: 40px;
-    font-size: 30px; }
-    section#base-stats li .stat-no {
-      width: 40px; }
+  section#base-stats {
+    padding: 0 30px; }
+    section#base-stats h3 {
+      font-size: 40px; }
+    section#base-stats li {
+      height: 40px;
+      font-size: 30px; }
+      section#base-stats li .stat-no {
+        width: 40px; }
 
   section#evolution-chain {
     text-align: center; }
@@ -324,12 +326,12 @@ footer {
       font-size: 40px;
       margin-top: 30px; }
     section#evolution-chain .evo-chain-link {
-      margin-right: 75px;
       display: inline-block;
       vertical-align: top;
       width: 20%; }
-      section#evolution-chain .evo-chain-link:nth-child(3n+1) {
-        margin-right: 0; }
+      section#evolution-chain .evo-chain-link:nth-child(2n+1) {
+        margin-left: 80px;
+        margin-right: 80px; }
       section#evolution-chain .evo-chain-link .evo-item::before {
         height: 96px;
         width: 96px; }
@@ -344,4 +346,7 @@ footer {
     section#type-effectiveness .type:nth-child(3n+1) {
       margin-right: 1%; }
     section#type-effectiveness .type:nth-child(6n+1) {
-      margin-right: 0px; } }
+      margin-right: 0px; }
+
+  footer {
+    font-size: 20px; } }

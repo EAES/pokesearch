@@ -417,18 +417,18 @@ footer{
 	}
 
 	header{
-		height: 200px;
+		height: 210px;
 
 		&::after{
 			background-size: auto 80%;
 		}
 
 		#main-logo{
-			height: 80px;
+			height: 90px;
 		}
 
 		#search-form{
-			width: 50%;
+			width: 60%;
 			margin: 0 auto;
 
 			.form-control{
@@ -457,6 +457,7 @@ footer{
 	}
 
 	section#base-stats{
+		padding: 0 30px;
 		h3{
 			font-size: 40px;
 		}
@@ -481,18 +482,17 @@ footer{
 		}
 
 		.evo-chain-link{
-			// margin-left: 7%;
-			// float: left;
-			margin-right: 75px;
 			display: inline-block;
-			// border: 1px solid green;
 			vertical-align: top;
 			width: 20%;
 
-			&:nth-child(3n+1){
-				margin-right: 0;
+			&:nth-child(2n+1){
+				margin-left: 80px;
+				margin-right: 80px;
 			}
 
+			&:nth-child(3n+1){
+			}
 
 			.evo-item::before{
 				height: 96px;
@@ -525,5 +525,9 @@ footer{
 				margin-right: 0px;
 			}
 		}
+	}
+
+	footer{
+		font-size: 20px;
 	}
 }
