@@ -42,7 +42,7 @@
 			  <p>Loading...</p>
 			</div>
 
-			<ul ng-repeat="evo in pokemonEvoChain" class="col-xs-4">
+			<ul ng-repeat="evo in pokemonEvoChain" class="col-xs-4 col-sm-2">
 				
 				<a ng-click="changePokemon(evo.species_name)">
 					<li ng-if="evo.min_level == 1">
@@ -91,7 +91,7 @@
 		<h3>{{ pokemon.name | capitalize}}'s Type Offenses</h3>
 		
 		<div ng-repeat="type in typeEffectiveness">
-			<h4 class="type {{type.name | lowercase}}">{{ type.name }}:</h4>
+			<h4 class="{{type.name | lowercase}}">{{ type.name }}:</h4>
 			<ul ng-if="type.immunes.length">
 				<p>No damage against:</p>
 				<li class="type {{i | lowercase}}" ng-repeat="i in type.immunes">{{ i }}</li>

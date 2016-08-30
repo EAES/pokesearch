@@ -6,13 +6,6 @@
 		url("../assets/fonts/pokemon_pixel_font.svg#Pokemon-Pixel-Font") format("svg");
 	font-weight:normal;font-style:normal;}
 
-
-#main-logo{
-	height: 60px;
-	display: block;
-	margin: 0 auto 20px auto;
-}
-
 header{
 	background: #DD0019;
 	padding: 20px;
@@ -31,6 +24,12 @@ header{
 		bottom: -20px;
 		left: 0px;
 		right: 0px;
+	}
+
+	#main-logo{
+		height: 60px;
+		display: block;
+		margin: 0 auto 20px auto;
 	}
 
 	#search-form{
@@ -80,22 +79,9 @@ h1, h2, h3 {
 }
 
 //types
-
-h4.type{
-	width: 100%;
-	font-size: 200%;
-}
-
 .type{
-	background: #ccc;
-	// border: 1px solid #aaa;
 	padding: 5px 0 3px 0;
-	min-width: 80px;
-	width: 32.33%;
-	display: inline-block;
 	text-align: center;
-	margin-bottom: 5px;
-	margin-right: 1.5%;
 	border-radius: 4px;
 	font-family: "Pokemon Pixel Font Regular";
 	font-size: 20px;
@@ -105,85 +91,78 @@ h4.type{
 	line-height: 100%;
 	color: white;
 	text-shadow: 0px 1px 0px #6B6B6B;
+}
 
-	&:nth-child(3n+1){
-		margin-right: 0;
-	}
-
-	&.normal{
+.normal{
 		background: #BEBEAE;
-	}
-	
-	&.grass{
-		background: #89D24E;
-	}
+}
 
-	&.bug{
-		background: #C0D021;
-	}
+.grass{
+	background: #89D24E;
+}
 
-	&.poison{
-		background: #AB5EA3;
-	}
+.bug{
+	background: #C0D021;
+}
 
-	&.flying{
-		background: #8AACF4;
-	}
+.poison{
+	background: #AB5EA3;
+}
 
-	&.water{
-		background: #56ACFF;
-	}
+.flying{
+	background: #8AACF4;
+}
 
-	&.ground{
-		background: #E7C755;
-	}
+.water{
+	background: #56ACFF;
+}
 
-	&.ghost{
-		background: #615CC8;
-	}
+.ground{
+	background: #E7C755;
+}
 
-	&.dark{
-		background: #533F35;
-	}
+.ghost{
+	background: #615CC8;
+}
 
-	&.rock{
-		background: #CDBC71;
-	}
+.dark{
+	background: #533F35;
+}
 
-	&.psychic{
-		background: #FA65B3;
-	}
+.rock{
+	background: #CDBC71;
+}
 
-	&.fire{
-		background: #FA5442;
-	}
+.psychic{
+	background: #FA65B3;
+}
 
-	&.steel{
-		background: #C4C2DB;
-	}
+.fire{
+	background: #FA5442;
+}
 
-	&.fighting{
-		background: #A95648;
-	}
+.steel{
+	background: #C4C2DB;
+}
 
-	&.fairy{
-		background: #FAAFFF;
-	}
+.fighting{
+	background: #A95648;
+}
 
-	&.ice{
-		background: #96F1FF;
-	}
+.fairy{
+	background: #FAAFFF;
+}
 
-	&.electric{
-		background: #FDE33C;
-	}
+.ice{
+	background: #96F1FF;
+}
 
-	&.dragon{
-		background: #8975FF;
-	}
+.electric{
+	background: #FDE33C;
+}
 
-
-
+.dragon{
+	background: #8975FF;
 }
 
 section{
@@ -214,7 +193,8 @@ section{
 			margin-left: 3px;
 			margin-right: 0;
 			font-size: 95%;
-			min-width: 42%;
+			min-width: 40%;
+			display: inline-block;
 		}
 	}
 
@@ -382,6 +362,35 @@ section{
 			}
 		}
 	}
+
+	&#type-effectiveness{
+
+		h4{
+			width: 100%;
+			font-size: 200%;
+			padding: 4px 0;
+			text-align: center;
+			border-radius: 4px;
+			font-family: "Pokemon Pixel Font Regular";
+			letter-spacing: 1px;
+			text-transform: uppercase;
+			color: white;
+			text-shadow: 0px 1px 0px #6B6B6B;
+		}
+
+		.type{
+			// border: 1px solid #aaa;
+			// min-width: 80px;
+			width: 32.33%;
+			display: inline-block;
+			margin-bottom: 5px;
+			margin-right: 1.5%;
+
+			&:nth-child(3n+1){
+				margin-right: 0;
+			}
+		}
+	}
 }
 
 footer{
@@ -393,4 +402,90 @@ footer{
 	text-align: center;
 	letter-spacing: 1px;
 	font-size: 13px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+	.messages{
+		img{
+			width: 40px;
+		}
+	}
+
+	header{
+		height: 200px;
+
+		&::after{
+			background-size: auto 80%;
+		}
+
+		#main-logo{
+			height: 80px;
+		}
+
+		#search-form{
+			width: 50%;
+			margin: 0 auto;
+
+			.form-control{
+				height: 50px;
+				font-size: 45px;
+			}
+		}
+
+	}
+
+	section#main-pokemon{
+		h3{
+			font-size: 30px;
+		}
+
+		#pokemon-art{
+			height: 200px;
+			// width: 75%;
+		}
+
+		.type{
+			min-width: 25%;
+			font-size: 150%;
+			margin: 0 5px;
+		}
+	}
+
+	section#base-stats{
+		h3{
+			font-size: 40px;
+		}
+
+		li{
+			height: 40px;
+			font-size: 30px;
+
+			.stat-no{
+				width: 40px;
+			}
+		}
+	}
+
+	section#evolution-chain{
+		
+	}
+
+	section#type-effectiveness{
+
+		.type{
+			width: 15.82%;
+			margin-right: 1%;
+			margin-bottom: 1%;
+
+			&:nth-child(3n+1){
+				margin-right: 1%;
+			}
+
+			&:nth-child(6n+1){
+				margin-right: 0px;
+			}
+		}
+	}
 }
