@@ -1,6 +1,3 @@
-✔ hyphenated search fix (e.g. mr-mime, mime-jr) @high @done (16-08-28 21:35)
-✔ convert search to lowercase @critical @done (16-08-27 10:13)
-✔ add predictive search @done (16-08-28 21:35)
 ☐ figure out evolution use/edge cases
   ☐ move learn use case
   ☐ eevee edge case @high
@@ -17,4 +14,14 @@
 ☐ add game locations in modal @high
 ☐ fix edge case searches (e.g. Darmanitan, Mr. Mime, Landorus/Tornadus/Thundurus-incarnate) @critical
 ☐ Add natures information modal
-✔ styles @done (16-08-28 21:35)
+☐ add lightbox image zoom to main pokemon image
+☐ convert markup to Jade
+☐ make responsive bootstrap semantic using SASS
+☐ add google analytics
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ hyphenated search fix (e.g. mr-mime, mime-jr) @high @done (16-08-28 21:35)
+ ✔ convert search to lowercase @critical @done (16-08-27 10:13)
+ ✔ add predictive search @done (16-08-28 21:35)
+ ✔ styles @done (16-08-28 21:35)
