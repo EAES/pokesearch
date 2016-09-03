@@ -222,7 +222,7 @@ section#evolution-chain {
   margin-top: 10px; }
   section#evolution-chain .evo-chain-link {
     padding: 0;
-    margin: 0;
+    margin: 0 0 13px 0;
     display: inline-block;
     vertical-align: top;
     width: 33.33%; }
@@ -329,9 +329,6 @@ footer {
       display: inline-block;
       vertical-align: top;
       width: 20%; }
-      section#evolution-chain .evo-chain-link:nth-child(2n+1) {
-        margin-left: 80px;
-        margin-right: 80px; }
       section#evolution-chain .evo-chain-link:last-child {
         margin: 0; }
       section#evolution-chain .evo-chain-link .evo-item::before {

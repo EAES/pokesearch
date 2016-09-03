@@ -24,28 +24,31 @@ angular
 			
 			$http.get($scope.pokemonSpecies.evolution_chain.url).then(function(response){
 				
-				//thanks Ryan @ stackoverflow!
+				//thanks Ryan @ stackoverflow && /u/Geldan @ /r/Javascript!
 				var evoChain = [];
 				var evoData = response.data.chain;
-				$scope.pokemonEvoDump = evoData;
 
-				do {
-				  var evoDetails = evoData.evolution_details[0];
+				function buildEvoChain(evoLink){
+					var evoDetails = evoLink.evolution_details[0];
 
-				  evoChain.push({
-				    "species_name": evoData.species.name,
-				    "species_url": evoData.species.url,
-				    "min_level": !evoDetails ? 1 : evoDetails.min_level,
-				    "trigger_name": !evoDetails ? null : evoDetails.trigger.name,
-				    "item": !evoDetails ? null : evoDetails.item,
-				    "held_item": !evoDetails ? null : (evoDetails.held_item),
-				    "overworld_rain": !evoDetails ? null : evoDetails.needs_overworld_rain,
-				    "happiness": !evoDetails ? null : evoDetails.min_happiness
-				  });
+					evoChain.push({
+						"species_name" : evoLink.species.name,
+						"species_url": evoLink.species.url,
+						"min_level": !evoDetails ? null : evoDetails.min_level,
+						"trigger_name": !evoDetails ? null : evoDetails.trigger.name,
+					    "item": !evoDetails ? null : evoDetails.item,
+					    "held_item": !evoDetails ? null : (evoDetails.held_item),
+					    "overworld_rain": !evoDetails ? null : evoDetails.needs_overworld_rain,
+					    "happiness": !evoDetails ? null : evoDetails.min_happiness
+					});
 
-				  evoData = evoData.evolves_to[0];
-				} while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+					if(evoLink.hasOwnProperty('evolves_to')){
+						evoLink.evolves_to.forEach(buildEvoChain);
+					}
+				}
 
+				buildEvoChain(evoData);
+				
 				$scope.pokemonEvoChain = evoChain;
 
 			});

@@ -321,7 +321,7 @@ section{
 
 		.evo-chain-link{
 			padding: 0;
-			margin: 0;
+			margin: 0 0 13px 0;
 			display: inline-block;
 			vertical-align: top;
 			width: 33.33%;
@@ -485,11 +485,6 @@ footer{
 			display: inline-block;
 			vertical-align: top;
 			width: 20%;
-
-			&:nth-child(2n+1){
-				margin-left: 80px;
-				margin-right: 80px;
-			}
 
 			&:last-child{
 				margin: 0;

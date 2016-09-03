@@ -27,7 +27,7 @@
 <p class="bg-warning" ng-if="serviceError">{{ serviceError }}</p>
 
 <!-- content -->
-<div ng-if="pokemon" class="row container">
+<div ng-if="pokemon" class="container">
 	
 	<section id="main-pokemon" class="col-xs-5 col-sm-6">
 		<h3>#{{ pokemon.id | numLength:3}}</h3>
@@ -64,10 +64,11 @@
 			<div ng-repeat="evo in pokemonEvoChain" class="evo-chain-link">
 				
 				<a ng-click="changePokemon(evo.species_name)">
-					<div class="evo-item" ng-if="evo.min_level == 1">
+					<div class="evo-item" ng-if="evo.trigger_name == null">
 						<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
 						err-src="assets/images/noimage.png" />
 						<strong>{{evo.species_name | capitalize}}</strong>
+						<p>Start</p>
 					</div>
 				</a>
 				
