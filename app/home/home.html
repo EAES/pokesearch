@@ -1,3 +1,22 @@
+<header>
+	<img id="main-logo" src="assets/images/pokesearchlogo.svg" alt="PokeSearch">
+	
+	<form id="search-form" ng-submit="fetch()">
+		<input class="form-control" type="text"
+			   placeholder="Search Pokemon"
+			   ng-model="$parent.search"
+			   uib-typeahead="pokemon for pokemon in predictpokemon | filter:$viewValue | limitTo:8"
+			   typeahead-on-select="fetch()"
+			   onclick="select()">
+		<!-- <input type="submit"> -->
+		<span class="glyphicon glyphicon-search"
+			  aria-hidden="true"
+			  ng-click="fetch()"></span>
+		<span class="sr-only">Search:</span>
+
+	</form>
+</header>
+
 <!-- loading -->
 <div ng-if="!pokemon && !serviceError" class="messages">
   <img src="assets/images/loader.gif" />
@@ -8,7 +27,7 @@
 <p class="bg-warning" ng-if="serviceError">{{ serviceError }}</p>
 
 <!-- content -->
-<div ng-if="pokemon" class="row">
+<div ng-if="pokemon" class="row container">
 	
 	<section id="main-pokemon" class="col-xs-5 col-sm-6">
 		<h3>#{{ pokemon.id | numLength:3}}</h3>

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Pokemon Pixel Font Regular";
-  src: url("../assets/fonts/pokemon_pixel_font.eot?") format("eot"), url("../assets/fonts/pokemon_pixel_font.woff") format("woff"), url("../assets/fonts/pokemon_pixel_font.ttf") format("truetype"), url("../assets/fonts/pokemon_pixel_font.svg#Pokemon-Pixel-Font") format("svg");
+  src: url("../fonts/pokemon_pixel_font.eot?") format("eot"), url("../fonts/pokemon_pixel_font.woff") format("woff"), url("../fonts/pokemon_pixel_font.ttf") format("truetype"), url("../fonts/pokemon_pixel_font.svg#Pokemon-Pixel-Font") format("svg");
   font-weight: normal;
   font-style: normal; }
 header {
@@ -11,7 +11,7 @@ header {
   margin-bottom: 20px; }
   header::after {
     content: "";
-    background: url("../assets/images/pokeborder.png") center no-repeat;
+    background: url("../images/pokeborder.png") center no-repeat;
     background-size: auto 50%;
     min-width: 320px;
     width: 100%;
