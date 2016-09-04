@@ -241,7 +241,7 @@ section#evolution-chain {
       position: relative;
       color: #6b6b6b;
       cursor: pointer; }
-      section#evolution-chain .evo-chain-link .evo-item .evolution-triggers li {
+      section#evolution-chain .evo-chain-link .evo-item .evolution-triggers {
         width: 90%;
         margin: 0 auto;
         font-size: 80%;

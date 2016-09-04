@@ -27,7 +27,7 @@
 <p class="bg-warning" ng-if="serviceError">{{ serviceError }}</p>
 
 <!-- content -->
-<div ng-if="pokemon" class="container">
+<div ng-if="pokemon">
 	
 	<section id="main-pokemon" class="col-xs-5 col-sm-6">
 		<h3 ng-if="pokemon.id < 722">#{{ pokemon.id | numLength:3}}</h3>
@@ -68,7 +68,7 @@
 						<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
 						err-src="assets/images/noimage.png" />
 						<strong>{{evo.species_name | capitalize}}</strong>
-						<p>Start</p>
+						<p class="evolution-triggers">Start</p>
 					</div>
 				</a>
 
