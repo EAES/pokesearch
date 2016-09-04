@@ -30,7 +30,7 @@
 <div ng-if="pokemon" class="container">
 	
 	<section id="main-pokemon" class="col-xs-5 col-sm-6">
-		<h3>#{{ pokemon.id | numLength:3}}</h3>
+		<h3 ng-if="pokemon.id < 722">#{{ pokemon.id | numLength:3}}</h3>
 
 		<img id="pokemon-art" ng-src="assets/pokemon/{{pokemon.id}}.png" />
 
@@ -64,45 +64,46 @@
 			<div ng-repeat="evo in pokemonEvoChain" class="evo-chain-link">
 				
 				<a ng-click="changePokemon(evo.species_name)">
-					<div class="evo-item" ng-if="evo.trigger_name == null">
+					<div class="evo-item" ng-if="!evo.details">
 						<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
 						err-src="assets/images/noimage.png" />
 						<strong>{{evo.species_name | capitalize}}</strong>
 						<p>Start</p>
 					</div>
 				</a>
-				
+
 				<a ng-click="changePokemon(evo.species_name)">
-					<div class="evo-item" ng-if="evo.trigger_name">
-						
+					<div class="evo-item" ng-if="evo.details">
 						<img ng-src="assets/pokemon/sprites/{{ getPokemonIdFromUrl(evo.species_url) }}.png"
 						err-src="assets/images/noimage.png" />
-						<strong>{{ evo.species_name | capitalize }}</strong>
-
-					<!-- if by level up -->
-						<span ng-if="evo.trigger_name == 'level-up' ">
-							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
-							<!-- if levelup + weather -->
-							<span ng-if="evo.overworld_rain">Rain</span>
-						</span>
+						<strong>{{evo.species_name | capitalize}}</strong>
 						
-						<!-- if bytrade -->
-						<span ng-if="evo.trigger_name == 'trade' ">Trade
-							<!-- if level + trade-->
-							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
-							<!-- if held item + trade -->
-							<span ng-if="evo.held_item !== null ">w/ {{ evo.held_item.name | dehyphen | capitalize }}</span>
-						</span>
-						
-						<!-- if by item -->
-						<span ng-if="evo.trigger_name == 'use-item' ">{{evo.item.name | dehyphen | capitalize}}
-							<span ng-if="evo.min_level !== null ">lvl {{ evo.min_level }}</span>
-						</span>
-						
-						<!-- if by happiness -->
-						<span ng-if="evo.happiness != null ">Happiness</span>
+						<ul class="evolution-triggers">
+							<li ng-if="(evo.details.trigger.name !== 'use-item') && (!evo.details.min_level) ">{{evo.details.trigger.name | dehyphenate}}</li>
+							<li ng-if="evo.details.min_level"> level {{evo.details.min_level}} </li>
+							<li ng-if="evo.details.item.name"> {{evo.details.item.name | dehyphenate}} </li>
+							<li ng-if="evo.details.min_happiness"> high friendship </li>
+							<li ng-if="evo.details.min_beauty"> beauty </li>
+							<li ng-if="evo.details.held_item"> holding {{evo.details.held_item.name}} </li>
+							<li ng-if="evo.details.trade_species"> for {{evo.details.trade_species.name}} </li>
+							<li ng-if="evo.details.location"> near {{evo.details.location.name | dehyphenate}} </li>
+							<li ng-if="evo.details.time_of_day === 'day' ">during the day</li>
+							<li ng-if="evo.details.time_of_day === 'night' ">at night</li>
+							<li ng-if="evo.details.known_move_type">knows {{evo.details.known_move_type.name}} move </li>
+							<li ng-if="evo.details.min_affection"> {{ evo.details.min_affection }} &hearts; in Pokémon Amie </li>
+							<li ng-if="evo.details.known_move">knows {{evo.details.known_move.name}} </li>
+							<li ng-if="evo.details.needs_overworld_rain"> overworld rain </li>
+							<li ng-if="evo.details.gender === 1"> if female </li>
+							<li ng-if="evo.details.relative_physical_stats === -1"> Attack < Defense </li>
+							<li ng-if="evo.details.relative_physical_stats === 1"> Attack > Defense </li>
+							<li ng-if="evo.details.relative_physical_stats === 0"> Attack = Defense </li>
+							<li ng-if="evo.details.party_type"> w/ {{evo.details.party_type.name}} type in party </li>
+							<li ng-if="evo.details.party_species"> w/ {{evo.details.party_species.name}} in party </li>
+							<li ng-if="evo.details.turn_upside_down"> turn 3DS upside down </li>
+						</ul>
 					</div>
 				</a>
+
 			</div>
 	</section>
 

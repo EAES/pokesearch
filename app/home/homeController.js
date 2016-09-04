@@ -27,19 +27,13 @@ angular
 				//thanks Ryan @ stackoverflow && /u/Geldan @ /r/Javascript!
 				var evoChain = [];
 				var evoData = response.data.chain;
+				
 
 				function buildEvoChain(evoLink){
-					var evoDetails = evoLink.evolution_details[0];
-
 					evoChain.push({
 						"species_name" : evoLink.species.name,
 						"species_url": evoLink.species.url,
-						"min_level": !evoDetails ? null : evoDetails.min_level,
-						"trigger_name": !evoDetails ? null : evoDetails.trigger.name,
-					    "item": !evoDetails ? null : evoDetails.item,
-					    "held_item": !evoDetails ? null : (evoDetails.held_item),
-					    "overworld_rain": !evoDetails ? null : evoDetails.needs_overworld_rain,
-					    "happiness": !evoDetails ? null : evoDetails.min_happiness
+						"details": evoLink.evolution_details[0]
 					});
 
 					if(evoLink.hasOwnProperty('evolves_to')){

@@ -3,7 +3,7 @@ angular
 	.module('pokesearch')
 
 	//dehyphen filter
-	.filter('dehyphen', function() {
+	.filter('dehyphenate', function() {
 	  return function(input) {
 	    if (input!==null){
 	    	// input = input.toLowerCase();

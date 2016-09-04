@@ -1,15 +1,8 @@
 ☐ figure out evolution use/edge cases
-  ☐ move learn use case
-  ☐ eevee edge case @high
-  ☐ rotom edge case
-  ☐ weather use cases
-  ☐ upside down edge case
-  ☐ male/female use case @high
-  ☐ branch evo use case
   ☐ alt forms use cases (wormadam)
-  ☐ show mega evos if present
+☐ show mega evos if present
 ☐ speed up capture of evo chain @low
-☐ cache results @low
+☐ cache results @high
 ☐ plural possesive type offenses (s's)
 ☐ add game locations in modal @high
 ☐ fix edge case searches (e.g. Darmanitan, Mr. Mime, Landorus/Tornadus/Thundurus-incarnate) @critical
@@ -17,10 +10,17 @@
 ☐ add lightbox image zoom to main pokemon image
 ☐ convert markup to Jade
 ☐ make responsive bootstrap semantic using SASS
-☐ add google analytics
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ move learn use case @done (16-09-03 22:20)
+ ✔ eevee edge case @high @done (16-09-03 22:20)
+ ✔ rotom edge case @done (16-09-03 22:20)
+ ✔ weather use cases @done (16-09-03 22:20)
+ ✔ upside down edge case @done (16-09-03 22:20)
+ ✔ male/female use case @high @done (16-09-03 22:20)
+ ✔ branch evo use case @done (16-09-03 22:20)
+ ✔ add google analytics @done (16-09-03 22:19)
  ✔ hyphenated search fix (e.g. mr-mime, mime-jr) @high @done (16-08-28 21:35)
  ✔ convert search to lowercase @critical @done (16-08-27 10:13)
  ✔ add predictive search @done (16-08-28 21:35)

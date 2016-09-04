@@ -222,7 +222,7 @@ section#evolution-chain {
   margin-top: 10px; }
   section#evolution-chain .evo-chain-link {
     padding: 0;
-    margin: 0 0 13px 0;
+    margin: 0 0 8px 0;
     display: inline-block;
     vertical-align: top;
     width: 33.33%; }
@@ -241,6 +241,11 @@ section#evolution-chain {
       position: relative;
       color: #6b6b6b;
       cursor: pointer; }
+      section#evolution-chain .evo-chain-link .evo-item .evolution-triggers li {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 80%;
+        text-transform: capitalize; }
       section#evolution-chain .evo-chain-link .evo-item img {
         position: absolute;
         z-index: 3;
